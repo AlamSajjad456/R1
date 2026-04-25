@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auto XGBoost Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.30.0/plotly.min.js"></script>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-slate-100">
+    <div class="mx-auto max-w-6xl px-6 py-12">
+      <div class="mb-10 flex flex-col gap-4">
+        <p class="text-sm uppercase tracking-[0.4em] text-indigo-300">Auto ML</p>
+        <h1 class="text-4xl font-bold sm:text-5xl">Auto XGBoost Predictor</h1>
+        <p class="max-w-3xl text-slate-300">
+          Fill the form (recommended) or paste JSON, then get a prediction + optional SHAP contributions.
+        </p>
+      </div>
+
+      <div class="mb-10 grid gap-4 md:grid-cols-3">
+        <div class="rounded-3xl border border-slate-800 bg-gradient-to-r from-indigo-600/40 to-slate-900/60 p-5 shadow-lg">
+          <p class="text-xs uppercase tracking-widest text-indigo-200">Live Model</p>
+          <p class="mt-2 text-lg font-semibold">Ready for Predictions</p>
+          <p class="mt-1 text-sm text-slate-300">Send JSON and get instant insights.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-gradient-to-r from-emerald-600/30 to-slate-900/60 p-5 shadow-lg">
+          <p class="text-xs uppercase tracking-widest text-emerald-200">Explainability</p>
+          <p class="mt-2 text-lg font-semibold">SHAP Drivers</p>
+          <p class="mt-1 text-sm text-slate-300">See what pushed the result up or down.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-gradient-to-r from-amber-500/30 to-slate-900/60 p-5 shadow-lg">
+          <p class="text-xs uppercase tracking-widest text-amber-200">Decision Aid</p>
+          <p class="mt-2 text-lg font-semibold">Baseline + Delta</p>
+          <p class="mt-1 text-sm text-slate-300">Understand the shift from average.</p>
+        </div>
+      </div>
+
+      <div class="grid gap-8 lg:grid-cols-2">
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/70 p-6 shadow-xl">
+          <h2 class="mb-4 text-xl font-semibold">Request</h2>
+          <div class="mb-4 flex flex-wrap items-center gap-3 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
+            <label class="text-sm text-slate-300">Model</label>
+            <select
+              id="modelSelect"
+              class="rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none focus:border-indigo-400"
+            >
+              <option value="auto" selected>Auto</option>
+              <option value="with_bp">With BP</option>
+              <option value="no_bp">Without BP</option>
+            </select>
+            <label class="text-sm text-slate-300">Threshold</label>
+            <input
+              id="thresholdInput"
+              value="0.51"
+              class="w-24 rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none focus:border-indigo-400"
+            />
+            <label class="text-sm text-slate-300">Explain</label>
+            <input id="explainToggle" type="checkbox" class="h-4 w-4 accent-indigo-400" />
+            <span class="text-xs text-slate-400">Uses SHAP if available</span>
+          </div>
+
+          <div class="mb-4 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
+            <div class="flex items-center justify-between">
+              <p class="text-xs uppercase tracking-widest text-indigo-300">Form Input</p>
+              <p class="text-xs text-slate-400">Recommended</p>
+            </div>
+            <p class="mt-2 text-sm text-slate-300">Fill the fields and click Predict.</p>
+            <div id="formGrid" class="mt-4 grid gap-3 sm:grid-cols-2"></div>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button
+                id="sendFormBtn"
+                class="rounded-full bg-indigo-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400"
+              >
+                Predict From Form
+              </button>
+              <button
+                id="fillExampleBtn"
+                class="rounded-full border border-slate-600 px-5 py-2 text-sm font-semibold text-slate-200 transition hover:border-slate-400"
+              >
+                Fill Example
+              </button>
+            </div>
+          </div>
+
+          <details class="group rounded-2xl border border-slate-700 bg-slate-950/40 p-4">
+            <summary class="cursor-pointer select-none text-sm font-semibold text-slate-200">
+              Advanced: JSON Input
+              <span class="ml-2 text-xs font-normal text-slate-400">(click to expand)</span>
+            </summary>
+            <p class="mt-2 text-xs text-slate-400">
+              Tip: The form above is easier. JSON is useful for copy/paste and debugging. (For this dataset, <code>age</code> is in <b>days</b>.)
+            </p>
+            <textarea
+              id="jsonInput"
+              class="mt-3 h-80 w-full rounded-2xl border border-slate-700 bg-slate-950/60 p-4 font-mono text-sm text-slate-100 outline-none focus:border-indigo-400"
+            >
+{
+  "input": {
+    "age": 20089,
+    "gender": 1,
+    "height": 165,
+    "weight": 72,
+    "ap_hi": 130,
+    "ap_lo": 80,
+    "cholesterol": 1,
+    "gluc": 1,
+    "smoke": 0,
+    "alco": 0,
+    "active": 1
+  }
+}
+            </textarea>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button
+                id="sendBtn"
+                class="rounded-full bg-indigo-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400"
+              >
+                Send JSON
+              </button>
+              <button
+                id="clearBtn"
+                class="rounded-full border border-slate-600 px-5 py-2 text-sm font-semibold text-slate-200 transition hover:border-slate-400"
+              >
+                Clear
+              </button>
+            </div>
+          </details>
+          <p id="status" class="mt-4 text-sm text-slate-400"></p>
+        </div>
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/70 p-6 shadow-xl">
+          <h2 class="mb-4 text-xl font-semibold">Batch CSV</h2>
+          <p class="text-sm text-slate-300">
+            Upload a CSV and download predictions.
+          </p>
+          <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
+            <input
+              id="csvInput"
+              type="file"
+              accept=".csv"
+              class="block w-full text-sm text-slate-300 file:mr-4 file:rounded-full file:border-0 file:bg-indigo-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-indigo-400"
+            />
+            <div class="mt-4 flex flex-wrap gap-3">
+              <label class="text-sm text-slate-300">Delimiter</label>
+              <input
+                id="csvDelimiter"
+                value=";"
+                class="w-16 rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none focus:border-emerald-400"
+              />
+              <button
+                id="uploadBtn"
+                class="rounded-full bg-emerald-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-400"
+              >
+                Upload & Predict
+              </button>
+              <a
+                id="downloadLink"
+                class="hidden rounded-full border border-slate-600 px-5 py-2 text-sm font-semibold text-slate-200 transition hover:border-slate-400"
+                download="predictions.csv"
+              >
+                Download Results
+              </a>
+            </div>
+            <p id="csvStatus" class="mt-4 text-sm text-slate-400"></p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/70 p-6 shadow-xl">
+          <h2 class="mb-4 text-xl font-semibold">Response</h2>
+          <div class="rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
+            <div class="grid gap-3 sm:grid-cols-3">
+              <div id="decisionCard" class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                <p class="text-xs uppercase tracking-widest text-indigo-300">Predicted Cardio</p>
+                <p id="predValue" class="mt-2 text-2xl font-semibold">--</p>
+              </div>
+              <div id="probCard" class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                <p class="text-xs uppercase tracking-widest text-indigo-300">Probability</p>
+                <p id="probValue" class="mt-2 text-2xl font-semibold">--</p>
+              </div>
+              <div id="riskCard" class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                <p class="text-xs uppercase tracking-widest text-indigo-300">Risk Level</p>
+                <p id="riskValue" class="mt-2 text-2xl font-semibold">--</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
+            <div class="flex items-center justify-between">
+              <p class="text-xs uppercase tracking-widest text-indigo-300">Probability vs Threshold</p>
+              <p class="text-xs text-slate-400">Quick comparison</p>
+            </div>
+            <div class="mt-3 h-48">
+              <div id="predChart" class="h-full"></div>
+            </div>
+            <div class="mt-4">
+              <p class="text-xs uppercase tracking-widest text-indigo-300">Risk Meter</p>
+              <div class="mt-2 h-3 w-full rounded-full bg-slate-800">
+                <div id="impactBar" class="h-3 rounded-full bg-indigo-400" style="width: 50%"></div>
+              </div>
+              <p id="impactLabel" class="mt-2 text-xs text-slate-400">Awaiting prediction...</p>
+            </div>
+          </div>
+          <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
+            <p class="text-xs uppercase tracking-widest text-indigo-300">Human Summary</p>
+            <p id="summary" class="mt-2 text-sm text-slate-200"></p>
+            <p id="subSummary" class="mt-3 text-sm text-slate-400"></p>
+            <div class="mt-4">
+              <p class="text-xs uppercase tracking-widest text-indigo-300">Top Drivers</p>
+              <ul id="drivers" class="mt-2 space-y-2 text-sm text-slate-200"></ul>
+            </div>
+          </div>
+          <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
+            <div class="flex items-center justify-between">
+              <p class="text-xs uppercase tracking-widest text-indigo-300">Driver Chart</p>
+              <p class="text-xs text-slate-400">Red decreases, green increases</p>
+            </div>
+            <div class="mt-3 h-64">
+              <div id="driversChart" class="h-full"></div>
+            </div>
+          </div>
+          <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
+            <p class="text-xs uppercase tracking-widest text-indigo-300">Raw JSON</p>
+            <pre id="result" class="mt-2 whitespace-pre-wrap text-xs text-slate-300"></pre>
+          </div>
+          <div class="mt-6 grid gap-4 rounded-2xl border border-slate-700 bg-slate-950/60 p-4">
+            <div>
+              <p class="text-xs uppercase tracking-widest text-indigo-300">Tip</p>
+              <p class="text-sm text-slate-300">
+                You can submit a batch by passing an array under
+                <code class="rounded bg-slate-800 px-2 py-1 text-xs">input</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sendBtn = document.getElementById("sendBtn");
+        const sendFormBtn = document.getElementById("sendFormBtn");
+        const fillExampleBtn = document.getElementById("fillExampleBtn");
+        const clearBtn = document.getElementById("clearBtn");
+        const result = document.getElementById("result");
+        const status = document.getElementById("status");
+        const jsonInput = document.getElementById("jsonInput");
+        const csvInput = document.getElementById("csvInput");
+        const uploadBtn = document.getElementById("uploadBtn");
+        const downloadLink = document.getElementById("downloadLink");
+        const csvStatus = document.getElementById("csvStatus");
+        const thresholdInput = document.getElementById("thresholdInput");
+        const explainToggle = document.getElementById("explainToggle");
+        const modelSelect = document.getElementById("modelSelect");
+        const csvDelimiter = document.getElementById("csvDelimiter");
+        const formGrid = document.getElementById("formGrid");
+        let chartInstance = true;
+        let predChartInstance = true;
+
+        const setStatus = (message, isError = false) => {
+          if (!status) return;
+          status.textContent = message;
+          status.className = isError ? "mt-4 text-sm text-red-400" : "mt-4 text-sm text-slate-400";
+        };
+
+        window.addEventListener("error", (e) => {
+          setStatus(`UI Error: ${e.message}`, true);
+        });
+
+        if (!sendBtn || !jsonInput || !result) {
+          setStatus("UI Error: missing required elements (sendBtn/jsonInput/result). Refresh the page.", true);
+          return;
+        }
+
+        setStatus("UI loaded. Ready.");
+
+        const prettyModelLabel = (id) => {
+          const key = String(id || "").trim();
+          if (key === "with_bp") return "Cardio (with BP)";
+          if (key === "no_bp") return "Cardio (without BP)";
+          if (key === "logreg") return "Logistic Regression";
+          if (key === "lgbm") return "LightGBM (with BP)";
+          if (key === "stack") return "Stacking Ensemble (with BP)";
+          if (key === "svm") return "SVM (calibrated)";
+          if (key === "mlp") return "Neural Network (MLP)";
+          return key;
+        };
+
+        const refreshModelOptions = async () => {
+          if (!modelSelect) return;
+          const keep = (modelSelect.value || "auto").trim();
+          try {
+            const res = await fetch("/schema?model=with_bp");
+            const payload = await res.json();
+            const available = Array.isArray(payload?.available_models) ? payload.available_models : [];
+
+            const opts = [];
+            opts.push(`<option value="auto">Auto</option>`);
+            available.forEach((m) => {
+              opts.push(`<option value="${String(m).replaceAll('"', "&quot;")}">${prettyModelLabel(m)}</option>`);
+            });
+            modelSelect.innerHTML = opts.join("");
+
+            const stillValid = keep === "auto" || available.includes(keep);
+            modelSelect.value = stillValid ? keep : "auto";
+          } catch (e) {
+            // If schema is unavailable, keep the static options in the HTML.
+          }
+        };
+
+        // Note: the cardio dataset stores age in DAYS. In the form we ask for YEARS and convert -> days.
+        const exampleValues = {
+          age_years: 55,
+          gender: 1, // 1=female, 2=male (cardio dataset convention)
+          height: 165,
+          weight: 72,
+          ap_hi: 130,
+          ap_lo: 80,
+          cholesterol: 1,
+          gluc: 1,
+          smoke: 0,
+          alco: 0,
+          active: 1,
+        };
+
+        const fieldConfig = (name) => {
+          if (name === "age") {
+            return { kind: "age_years", label: "age (years)", id: "f_age_years" };
+          }
+          if (name === "gender") {
+            return {
+              kind: "select",
+              label: "gender",
+              options: [
+                { value: 1, label: "Female (1)" },
+                { value: 2, label: "Male (2)" },
+              ],
+            };
+          }
+          if (name === "smoke" || name === "alco" || name === "active") {
+            return {
+              kind: "select",
+              label: name,
+              options: [
+                { value: 0, label: "No (0)" },
+                { value: 1, label: "Yes (1)" },
+              ],
+            };
+          }
+          if (name === "cholesterol" || name === "gluc") {
+            return {
+              kind: "select",
+              label: name,
+              options: [
+                { value: 1, label: "Normal (1)" },
+                { value: 2, label: "Above normal (2)" },
+                { value: 3, label: "Well above normal (3)" },
+              ],
+            };
+          }
+          return { kind: "number", label: name, id: `f_${name}` };
+        };
+
+        const pickFeatures = (schemaPayload) => {
+          const fromSchema = schemaPayload?.raw_features || Object.keys(schemaPayload?.schema || {});
+          // If a different model is loaded with a huge schema, keep the UI usable by falling back.
+          if (Array.isArray(fromSchema) && fromSchema.length > 0 && fromSchema.length <= 50) return fromSchema;
+          return ["age", "gender", "height", "weight", "ap_hi", "ap_lo", "cholesterol", "gluc", "smoke", "alco", "active"];
+        };
+
+        const schemaUrl = () => {
+          const selected = (modelSelect?.value || "auto").trim();
+          // Auto uses the BP schema so BP fields are available when you enter them.
+          if (selected === "auto") return "/schema?model=with_bp";
+          return `/schema?model=${encodeURIComponent(selected)}`;
+        };
+
+        const buildForm = async () => {
+          if (!formGrid) return;
+          try {
+            const res = await fetch(schemaUrl());
+            const payload = await res.json();
+            const features = pickFeatures(payload);
+            formGrid.innerHTML = "";
+            features.forEach((name) => {
+              const cfg = fieldConfig(name);
+              const wrap = document.createElement("div");
+              wrap.className = "flex flex-col gap-1";
+              const label = document.createElement("label");
+              label.className = "text-xs uppercase tracking-widest text-slate-400";
+              label.textContent = cfg.label || name;
+
+              const baseClass =
+                "rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none focus:border-indigo-400";
+
+              if (cfg.kind === "select") {
+                const select = document.createElement("select");
+                select.className = baseClass;
+                select.id = cfg.id || `f_${name}`;
+                (cfg.options || []).forEach((opt) => {
+                  const o = document.createElement("option");
+                  o.value = String(opt.value);
+                  o.textContent = opt.label;
+                  select.appendChild(o);
+                });
+                // Defaults (so users don't have to think in 0/1).
+                const defaultValue = exampleValues[name];
+                if (defaultValue !== undefined) select.value = String(defaultValue);
+                wrap.appendChild(label);
+                wrap.appendChild(select);
+              } else if (cfg.kind === "age_years") {
+                const input = document.createElement("input");
+                input.className = baseClass;
+                input.type = "number";
+                input.inputMode = "numeric";
+                input.min = "0";
+                input.step = "1";
+                input.id = cfg.id;
+                input.placeholder = String(exampleValues.age_years ?? "");
+                wrap.appendChild(label);
+                wrap.appendChild(input);
+              } else {
+                const input = document.createElement("input");
+                input.className = baseClass;
+                input.type = "number";
+                input.inputMode = "decimal";
+                input.id = cfg.id || `f_${name}`;
+                input.placeholder = String(exampleValues[name] ?? "");
+                wrap.appendChild(label);
+                wrap.appendChild(input);
+              }
+              formGrid.appendChild(wrap);
+            });
+          } catch (e) {
+            setStatus(`UI Error: ${String(e)}`, true);
+          }
+        };
+
+        refreshModelOptions().finally(() => buildForm());
+
+        if (fillExampleBtn) fillExampleBtn.addEventListener("click", () => {
+          const ageEl = document.getElementById("f_age_years");
+          if (ageEl) ageEl.value = String(exampleValues.age_years);
+
+          const selected = (modelSelect?.value || "auto").trim();
+          const baseKeys = ["gender", "height", "weight", "cholesterol", "gluc", "smoke", "alco", "active"];
+          const keys = selected === "no_bp" ? baseKeys : ["ap_hi", "ap_lo", ...baseKeys];
+          keys.forEach((k) => {
+            const el = document.getElementById(`f_${k}`);
+            if (el) el.value = String(exampleValues[k]);
+          });
+
+          setStatus("Example values filled.");
+        });
+
+        const requestPredict = async (payload) => {
+          const threshold = (thresholdInput?.value || "").trim();
+          const explain = explainToggle?.checked ? "true" : "false";
+          const selected = (modelSelect?.value || "auto").trim();
+          const modelParam = selected && selected !== "auto" ? `&model=${encodeURIComponent(selected)}` : "";
+          const requestUrl = `/predict?explain=${explain}${threshold ? `&threshold=${encodeURIComponent(threshold)}` : ""}${modelParam}`;
+          const response = await fetch(requestUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const data = await response.json().catch(() => ({}));
+          return { response, data, threshold };
+        };
+
+        const renderPredictResponse = (data, payload, thresholdRaw) => {
+          const first = data.results?.[0];
+          const summary = document.getElementById("summary");
+          const drivers = document.getElementById("drivers");
+          const predValue = document.getElementById("predValue");
+          const probValue = document.getElementById("probValue");
+          const riskValue = document.getElementById("riskValue");
+          const subSummary = document.getElementById("subSummary");
+          if (!first) return;
+
+          const thresholdNum = thresholdRaw ? Number(thresholdRaw) : Number.NaN;
+          const prob1 = Array.isArray(first.probability_score) ? Number(first.probability_score[1]) : Number.NaN;
+          const decision = first.prediction_thresholded ?? first.prediction;
+          const decisionLabel = first.prediction_label || (decision === 1 ? "Cardio: Yes" : "Cardio: No");
+
+          const getBpCategory = (payloadObj) => {
+            const s = Number(payloadObj?.input?.ap_hi);
+            const d = Number(payloadObj?.input?.ap_lo);
+            if (!Number.isFinite(s) || !Number.isFinite(d)) return "--";
+            if (s >= 140 || d >= 90) return "High BP (Stage 2)";
+            if (s >= 130 || d >= 80) return "High BP (Stage 1)";
+            if (s >= 120 && d < 80) return "Elevated";
+            if (s < 120 && d < 80) return "Normal";
+            return "--";
+          };
+
+          if (summary) {
+            summary.textContent =
+              first.summary ||
+              (Number.isFinite(prob1)
+                ? `The model estimates a ${(prob1 * 100).toFixed(1)}% chance of cardio.`
+                : "Prediction received.");
+          }
+          if (subSummary) {
+            const probNo = Number.isFinite(first.prob_no_cardio) ? `${(first.prob_no_cardio * 100).toFixed(1)}% no cardio` : "";
+            const probYes = Number.isFinite(first.prob_cardio) ? `${(first.prob_cardio * 100).toFixed(1)}% cardio` : "";
+            const thresholdText = Number.isFinite(first.threshold_used) ? `threshold ${Number(first.threshold_used).toFixed(2)}` : `threshold ${Number.isFinite(thresholdNum) ? thresholdNum.toFixed(2) : "0.50"}`;
+            const bpCategory = getBpCategory(payload);
+            const modelText = first.model_id ? `model: ${first.model_id}` : "";
+            subSummary.textContent = [probYes, probNo, first.risk_label ? `${first.risk_label} risk` : "", thresholdText, modelText, bpCategory !== "--" ? `BP: ${bpCategory}` : ""]
+              .filter(Boolean)
+              .join(" | ");
+          }
+
+          if (drivers) {
+            drivers.innerHTML = "";
+            const contribs = first.top_contributions || [];
+            if (!contribs.length) {
+              const li = document.createElement("li");
+              li.textContent = "Explain is off (or SHAP not available). Toggle Explain to see drivers.";
+              drivers.appendChild(li);
+            }
+            contribs.forEach((item) => {
+              const li = document.createElement("li");
+              const direction = item.direction === "increased" ? "increased" : "decreased";
+              li.textContent = `${item.feature}: ${direction} by ${item.contribution.toFixed(2)}`;
+              drivers.appendChild(li);
+            });
+          }
+
+          if (predValue) predValue.textContent = decisionLabel;
+          if (probValue) probValue.textContent = Number.isFinite(prob1) ? `${(prob1 * 100).toFixed(1)}%` : "--";
+          if (riskValue) riskValue.textContent = first.risk_label || "--";
+
+          // Color indicators (teacher-friendly): Green = low, Red = high.
+          const decisionCard = document.getElementById("decisionCard");
+          const probCard = document.getElementById("probCard");
+          const riskCard = document.getElementById("riskCard");
+
+          const toneStyles = {
+            red: { border: "#fb7185", bg: "rgba(244, 63, 94, 0.10)", fg: "#fecaca" },
+            orange: { border: "#fb923c", bg: "rgba(249, 115, 22, 0.10)", fg: "#fed7aa" },
+            amber: { border: "#fbbf24", bg: "rgba(245, 158, 11, 0.10)", fg: "#fde68a" },
+            green: { border: "#34d399", bg: "rgba(16, 185, 129, 0.10)", fg: "#bbf7d0" },
+            neutral: { border: "#334155", bg: "rgba(15, 23, 42, 0.35)", fg: "#e2e8f0" },
+          };
+
+          const applyTone = (cardEl, tone) => {
+            if (!cardEl) return;
+            const s = toneStyles[tone] || toneStyles.neutral;
+            cardEl.style.borderColor = s.border;
+            cardEl.style.backgroundColor = s.bg;
+          };
+
+          const applyTextTone = (textEl, tone) => {
+            if (!textEl) return;
+            const s = toneStyles[tone] || toneStyles.neutral;
+            textEl.style.color = s.fg;
+          };
+
+          const thresholdForDecision = Number.isFinite(thresholdNum) ? thresholdNum : 0.5;
+          const isHighRisk = Number.isFinite(prob1) ? prob1 >= thresholdForDecision : decision === 1;
+
+          applyTone(decisionCard, decision === 1 ? "red" : "green");
+          applyTextTone(predValue, decision === 1 ? "red" : "green");
+
+          applyTone(probCard, isHighRisk ? "red" : "green");
+          applyTextTone(probValue, isHighRisk ? "red" : "green");
+
+          let riskTone = "neutral";
+          if ((first.risk_label || "").toLowerCase() === "high") riskTone = "red";
+          else if ((first.risk_label || "").toLowerCase() === "moderate") riskTone = "orange";
+          else if ((first.risk_label || "").toLowerCase() === "borderline") riskTone = "amber";
+          else if ((first.risk_label || "").toLowerCase() === "low") riskTone = "green";
+          applyTone(riskCard, riskTone);
+          applyTextTone(riskValue, riskTone);
+
+          const chartLabels = (first.top_contributions || []).map((item) => item.feature);
+          const chartValues = (first.top_contributions || []).map((item) => item.contribution);
+          const chartColors = chartValues.map((val) => (val >= 0 ? "#22c55e" : "#ef4444"));
+
+          // Charts are optional. If Plotly didn't load (offline networks), keep predictions working.
+          if (window.Plotly) {
+            if (chartInstance) Plotly.purge("driversChart");
+            Plotly.newPlot(
+              "driversChart",
+              [
+                {
+                  x: chartLabels,
+                  y: chartValues,
+                  type: "bar",
+                  marker: { color: chartColors },
+                  hovertemplate: "%{x}<br>%{y:.2f}<extra></extra>",
+                },
+              ],
+              {
+                margin: { t: 10, l: 40, r: 20, b: 80 },
+                paper_bgcolor: "rgba(0,0,0,0)",
+                plot_bgcolor: "rgba(0,0,0,0)",
+                font: { color: "#cbd5f5" },
+                xaxis: { tickangle: -35 },
+              },
+              { responsive: true }
+            );
+
+            if (predChartInstance) Plotly.purge("predChart");
+            Plotly.newPlot(
+              "predChart",
+              [
+                {
+                  x: ["Threshold", "Probability"],
+                  y: [Number.isFinite(thresholdNum) ? thresholdNum : 0.5, Number.isFinite(prob1) ? prob1 : 0],
+                  type: "bar",
+                  marker: { color: ["#64748b", "#6366f1"] },
+                  hovertemplate: "%{x}<br>%{y:.2f}<extra></extra>",
+                },
+              ],
+              {
+                margin: { t: 10, l: 40, r: 20, b: 40 },
+                paper_bgcolor: "rgba(0,0,0,0)",
+                plot_bgcolor: "rgba(0,0,0,0)",
+                font: { color: "#cbd5f5" },
+              },
+              { responsive: true }
+            );
+          }
+
+          const impactBar = document.getElementById("impactBar");
+          const impactLabel = document.getElementById("impactLabel");
+          if (impactBar && impactLabel && Number.isFinite(prob1)) {
+            const pct = Math.min(100, Math.max(0, prob1 * 100));
+            impactBar.style.width = `${Math.max(6, pct)}%`;
+            const isHigh = Number.isFinite(thresholdNum) ? prob1 >= thresholdNum : prob1 >= 0.5;
+            impactBar.className = isHigh ? "h-3 rounded-full bg-rose-400" : "h-3 rounded-full bg-emerald-400";
+            impactLabel.textContent = isHigh
+              ? `High risk (p=${prob1.toFixed(2)} >= ${Number.isFinite(thresholdNum) ? thresholdNum.toFixed(2) : "0.50"})`
+              : `Low risk (p=${prob1.toFixed(2)} < ${Number.isFinite(thresholdNum) ? thresholdNum.toFixed(2) : "0.50"})`;
+          }
+        };
+
+        if (sendFormBtn) sendFormBtn.addEventListener("click", async () => {
+          result.textContent = "";
+          setStatus("Sending form...");
+          try {
+            const schemaRes = await fetch(schemaUrl());
+            const schemaPayload = await schemaRes.json();
+            const features = pickFeatures(schemaPayload);
+            const sample = {};
+            features.forEach((name) => {
+              const cfg = fieldConfig(name);
+
+              if (name === "age") {
+                const el = document.getElementById("f_age_years");
+                const raw = (el?.value || "").trim();
+                if (raw === "") return;
+                const years = Number(raw);
+                if (!Number.isFinite(years)) return;
+                sample.age = Math.round(years * 365.25);
+                return;
+              }
+
+              const el = document.getElementById(cfg.id || `f_${name}`);
+              if (!el) return;
+              const raw = (el.value || "").trim();
+              if (raw === "") return;
+              const num = Number(raw);
+              sample[name] = Number.isFinite(num) ? num : raw;
+            });
+
+            if (Object.keys(sample).length === 0) {
+              setStatus("Please fill at least one field (or click Fill Example).", true);
+              return;
+            }
+
+            const payload = { input: sample };
+            const { response, data, threshold } = await requestPredict(payload);
+            if (!response.ok) {
+              setStatus("Request failed. See error details.", true);
+              result.textContent = JSON.stringify(data, null, 2);
+              return;
+            }
+            setStatus("Prediction received.");
+            result.textContent = JSON.stringify(data, null, 2);
+            renderPredictResponse(data, payload, threshold);
+          } catch (e) {
+            setStatus(`Error: ${String(e)}`, true);
+          }
+        });
+
+        sendBtn.addEventListener("click", async () => {
+          result.textContent = "";
+          setStatus("Sending JSON...");
+          let payload;
+          try {
+            payload = JSON.parse(jsonInput.value);
+          } catch (err) {
+            setStatus("Invalid JSON. Please fix the payload.", true);
+            return;
+          }
+ 
+          try {
+            const { response, data, threshold } = await requestPredict(payload);
+            if (!response.ok) {
+              setStatus("Request failed. See error details.", true);
+              result.textContent = JSON.stringify(data, null, 2);
+              return;
+            }
+
+            setStatus("Prediction received.");
+            result.textContent = JSON.stringify(data, null, 2);
+            renderPredictResponse(data, payload, threshold);
+          } catch (err) {
+            setStatus(`Error: ${String(err)}`, true);
+          }
+        });
+
+        if (modelSelect) {
+          modelSelect.addEventListener("change", async () => {
+            setStatus("Switching model...");
+            await buildForm();
+            setStatus("");
+          });
+        }
+
+      const safeSetText = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+      };
+
+      const safeSetHtml = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = value;
+      };
+
+      if (clearBtn) clearBtn.addEventListener("click", () => {
+        jsonInput.value = "";
+        result.textContent = "";
+        safeSetText("summary", "");
+        safeSetText("subSummary", "");
+        safeSetHtml("drivers", "");
+        safeSetText("predValue", "--");
+        safeSetText("probValue", "--");
+        safeSetText("riskValue", "--");
+        if (window.Plotly) {
+          if (chartInstance) {
+            Plotly.purge("driversChart");
+            chartInstance = null;
+          }
+          if (predChartInstance) {
+            Plotly.purge("predChart");
+            predChartInstance = null;
+          }
+        }
+        const impactBar = document.getElementById("impactBar");
+        const impactLabel = document.getElementById("impactLabel");
+        if (impactBar) impactBar.style.width = "50%";
+        if (impactLabel) impactLabel.textContent = "Awaiting prediction...";
+        setStatus("");
+      });
+
+      if (uploadBtn) uploadBtn.addEventListener("click", async () => {
+        if (!csvInput.files || csvInput.files.length === 0) {
+          csvStatus.textContent = "Please choose a CSV file.";
+          return;
+        }
+        csvStatus.textContent = "Uploading CSV...";
+        downloadLink.classList.add("hidden");
+
+        const formData = new FormData();
+        formData.append("file", csvInput.files[0]);
+
+        try {
+          const delimiter = (csvDelimiter?.value || ";").trim() || ";";
+          const threshold = (thresholdInput?.value || "").trim();
+          const selected = (modelSelect?.value || "auto").trim();
+          const modelParam = selected && selected !== "auto" ? `&model=${encodeURIComponent(selected)}` : "";
+          const requestUrl = `/predict_csv?delimiter=${encodeURIComponent(delimiter)}${threshold ? `&threshold=${encodeURIComponent(threshold)}` : ""}${modelParam}`;
+          const response = await fetch(requestUrl, {
+            method: "POST",
+            body: formData,
+          });
+          if (!response.ok) {
+            const err = await response.text();
+            csvStatus.textContent = `Upload failed: ${err}`;
+            return;
+          }
+          const blob = await response.blob();
+          const downloadUrl = URL.createObjectURL(blob);
+          downloadLink.href = downloadUrl;
+          downloadLink.classList.remove("hidden");
+          csvStatus.textContent = "Prediction file is ready.";
+        } catch (err) {
+          csvStatus.textContent = "Network error. Is the API running?";
+        }
+      });
+      });
+    </script>
+  </body>
+</html>
