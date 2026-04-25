@@ -1,0 +1,136 @@
+\chapter{Implementation Details (This Repository)}
+
+This thesis was implemented as a small end-to-end machine learning system with:
+data preprocessing, model training, evaluation, explainability (SHAP), and a web API + UI for interactive predictions.
+
+\section{System Architecture}
+Figure~\ref{fig:system_arch} summarizes the complete flow from raw data to end-user prediction.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw=DeepObsidian, rounded corners=6pt, thick, fill=LightGray, inner sep=7pt, align=center, text width=4.2cm},
+  arrow/.style={-Latex, thick, color=DeepObsidian}
+]
+  % Vertical layout to avoid overflow on A4 pages.
+  \node[box] (data) {\textbf{Data}\\CSV dataset\\(cardio\_train\_clean.csv)};
+  \node[box, below=1.0cm of data] (prep) {\textbf{Preprocess}\\Cleaning, imputation,\\encoding/scaling};
+  \node[box, below=1.0cm of prep] (train) {\textbf{Train}\\XGBoost, RF, LogReg,\\SVM, MLP (and optional\\LightGBM/Stacking)};
+  \node[box, below=1.0cm of train] (model) {\textbf{Artifacts}\\Saved models\\\texttt{.joblib} + metrics};
+  \node[box, below=1.0cm of model] (api) {\textbf{Serve}\\FastAPI endpoints\\\texttt{/schema}, \texttt{/predict}};
+
+  \node[box, below left=0.9cm and 0.9cm of api] (ui) {\textbf{Web UI}\\Form + JSON\\(interactive)};
+  \node[box, below right=0.9cm and 0.9cm of api] (csv) {\textbf{Batch CSV}\\Upload $\rightarrow$ predict\\$\rightarrow$ download};
+
+  \draw[arrow] (data) -- (prep);
+  \draw[arrow] (prep) -- (train);
+  \draw[arrow] (train) -- (model);
+  \draw[arrow] (model) -- (api);
+  \draw[arrow] (ui) -- (api);
+  \draw[arrow] (csv) -- (api);
+\end{tikzpicture}
+\caption{End-to-end system architecture implemented in this repository.}
+\label{fig:system_arch}
+\end{figure}
+
+\section{Repository Structure}
+\begin{itemize}
+  \item \texttt{ml\_system/train.py}: Train tabular models on a single CSV (classification or regression). Supported families include XGBoost, Random Forest, Logistic Regression, SVM, MLP, and optional LightGBM/Stacking.
+  \item \texttt{ml\_system/evaluate\_model.py}: Evaluate a saved model on a dataset.
+  \item \texttt{ml\_system/threshold\_optimize.py}: Find a better probability threshold for classification.
+  \item \texttt{ml\_system/merge\_train.py}: Merge many CSVs by a shared key and train one large model.
+  \item \texttt{ml\_system/predict.py}: Prediction + SHAP explanations used by the API.
+  \item \texttt{ml\_system/api.py}: FastAPI server that exposes \texttt{/schema}, \texttt{/predict}, and \texttt{/predict\_csv}.
+  \item \texttt{ml\_system/web/index.html}: Frontend UI (form + JSON + charts + CSV upload).
+  \item \texttt{ml\_system/models/}: Saved models and metrics.
+\end{itemize}
+
+\section{Models Used}
+The project contains multiple saved models. The \textbf{primary cardio workflow} serves two XGBoost variants:
+\begin{itemize}
+  \item \textbf{With BP model} (\texttt{with\_bp}): uses systolic and diastolic blood pressure (\texttt{ap\_hi}, \texttt{ap\_lo}).
+  \item \textbf{Without BP model} (\texttt{no\_bp}): trained without \texttt{ap\_hi} and \texttt{ap\_lo} to reduce over-reliance on BP.
+\end{itemize}
+
+The FastAPI layer supports \textbf{Auto} selection:
+if \texttt{ap\_hi} or \texttt{ap\_lo} is present in the request, it uses \texttt{with\_bp}; otherwise it uses \texttt{no\_bp}.
+The selected model is returned as \texttt{model\_id} in every prediction response.
+
+\subsection{Model Inventory (Saved Artifacts)}
+Table~\ref{tab:model_inventory} lists the saved model artifacts currently used in this repository, along with the model IDs used by the API/UI.
+
+\begin{table}[htbp]
+\centering
+\caption{Saved model artifacts and their API model IDs.}
+\label{tab:model_inventory}
+\small
+\begin{tabular}{@{}llp{7.2cm}@{}}
+\toprule
+\textbf{Model ID} & \textbf{Task} & \textbf{Artifact Path / Description} \\
+\midrule
+\texttt{with\_bp} & Cardio (clf) & \texttt{ml\_system/models/cardio\_model.joblib} (XGBoost with BP features) \\
+\texttt{no\_bp} & Cardio (clf) & \texttt{ml\_system/models/cardio\_no\_bp.joblib} (XGBoost without BP features) \\
+\texttt{logreg} & Cardio (clf) & \texttt{ml\_system/models/cardio\_logreg.joblib} (Logistic Regression baseline) \\
+\texttt{svm} & Cardio (clf) & \texttt{ml\_system/models/cardio\_svm.joblib} (calibrated linear SVM) \\
+\texttt{mlp} & Cardio (clf) & \texttt{ml\_system/models/cardio\_mlp.joblib} (Neural Network / MLP) \\
+\texttt{rf} & Cardio (clf) & \texttt{ml\_system/models/cardio\_rf.joblib} (Random Forest) \\
+--- & PBS (reg) & \texttt{ml\_system/models/pbs\_model.joblib} (PBS 2017 regression model) \\
+fallback & --- & \texttt{ml\_system/models/model.joblib} (generic fallback when other paths are not configured) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\textit{Note:} The API also supports optional model IDs \texttt{lgbm} and \texttt{stack} if the corresponding model files are trained and present (\texttt{cardio\_lgbm.joblib}, \texttt{cardio\_stack.joblib}).
+
+\section{Training Commands (Reproducible)}
+Train the cardio classifier (CSV uses semicolon delimiter):
+\begin{verbatim}
+python -m ml_system.train "ml_system\data\cardio_train_clean.csv" --delimiter ";" --target cardio --drop-cols "id"
+\end{verbatim}
+
+Train specific model families (examples):
+\begin{verbatim}
+python -m ml_system.train "ml_system\data\cardio_train_clean.csv" --delimiter ";" --target cardio --drop-cols "id" --model-type logreg --save-model "ml_system\models\cardio_logreg.joblib"
+python -m ml_system.train "ml_system\data\cardio_train_clean.csv" --delimiter ";" --target cardio --drop-cols "id" --model-type svm --save-model "ml_system\models\cardio_svm.joblib"
+python -m ml_system.train "ml_system\data\cardio_train_clean.csv" --delimiter ";" --target cardio --drop-cols "id" --model-type mlp --save-model "ml_system\models\cardio_mlp.joblib"
+\end{verbatim}
+
+Cross-validation (example):
+\begin{verbatim}
+python -m ml_system.train "ml_system\data\cardio_train_clean.csv" --delimiter ";" --target cardio --drop-cols "id" --cv 5
+\end{verbatim}
+
+Evaluate a saved model:
+\begin{verbatim}
+python -m ml_system.evaluate_model "ml_system\data\cardio_train_clean.csv" --model "ml_system\models\cardio_model.joblib" --delimiter ";" --target cardio --drop-cols "id"
+\end{verbatim}
+
+Optimize a decision threshold (classification):
+\begin{verbatim}
+python -m ml_system.threshold_optimize "ml_system\data\cardio_train_clean.csv" --model "ml_system\models\cardio_model.joblib" --delimiter ";" --target cardio --drop-cols "id"
+\end{verbatim}
+
+\section{Serving With FastAPI}
+Run the API:
+\begin{verbatim}
+python -m uvicorn ml_system.api:app --host 0.0.0.0 --port 8000
+\end{verbatim}
+
+Endpoints:
+\begin{itemize}
+  \item \texttt{GET /} UI
+  \item \texttt{GET /docs} API documentation
+  \item \texttt{GET /schema} returns the expected input schema
+  \item \texttt{POST /predict} returns prediction, probability, and optional SHAP drivers
+  \item \texttt{POST /predict\_csv} upload a CSV and download predictions
+\end{itemize}
+
+\section{Explainability (SHAP)}
+When \texttt{explain=true}, the server returns:
+baseline, prediction delta, and the top driver features (SHAP contributions) that most increased or decreased the output.
+This helps explain \emph{why} the model predicted a higher or lower risk for a given sample.
+
+\section{Limitations and Safety}
+This software is designed for academic demonstration and decision support.
+It is \textbf{not} a stand-alone medical diagnostic device and should not be used as the only basis for clinical decisions.

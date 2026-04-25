@@ -1,0 +1,259 @@
+% !TEX program = pdflatex
+% University of Malakand Thesis Style (adapted)
+\documentclass[12pt, a4paper, oneside]{book}
+
+% ===== PACKAGES =====
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Font: The university guideline asks for Times New Roman. MiKTeX installs vary; missing font
+% packages can trigger interactive prompts. We prefer "compile-first" fallbacks:
+% 1) TeX Gyre Termes (Times-like, usually light on dependencies)
+% 2) newtx (Times-like, but may require extra packages like xpatch)
+% 3) Latin Modern (always available)
+\IfFileExists{tgtermes.sty}{%
+  \usepackage{tgtermes}%
+  \IfFileExists{newtxmath.sty}{\usepackage{newtxmath}}{}%
+}{%
+  \IfFileExists{newtxtext.sty}{%
+    \IfFileExists{xpatch.sty}{%
+      \usepackage{newtxtext}%
+      \usepackage{newtxmath}%
+    }{%
+      \usepackage{lmodern}%
+      \typeout{WARNING: newtxtext found but xpatch missing. Using Latin Modern. Install 'xpatch' (and newtx deps) for Times-like font.}%
+    }%
+  }{%
+    \usepackage{lmodern}%
+    \typeout{WARNING: Times-like font packages not found. Using Latin Modern. For Times, install 'tex-gyre' or 'newtx'.}%
+  }%
+}
+\usepackage{geometry}          % Margins
+\usepackage{xcolor}            % Colors (kept minimal; used in plots/tables)
+\usepackage{tikz}              % Diagrams
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage{pgfplots}          % Charts
+\pgfplotsset{compat=1.18}
+\usepackage{fancyhdr}          % Footer page numbers (bottom-right)
+\usepackage{multicol}          % Two-column lists/sections
+\usepackage{amsmath, amssymb}  % Math
+\usepackage{graphicx}          % Images
+\usepackage{booktabs}          % Tables
+\usepackage{array}             % Table columns
+\usepackage{colortbl}          % Table cell colors
+\usepackage{setspace}          % 1.5 line spacing
+\usepackage{microtype}         % Typography
+\usepackage{hyperref}          % Links
+\usepackage{bookmark}          % PDF bookmarks
+
+% ===== MARGINS (University of Malakand) =====
+% A4: left 1.5 inch, other sides 1 inch
+\geometry{
+  a4paper,
+  left=1.5in,
+  right=1in,
+  top=1in,
+  bottom=1in,
+  includeheadfoot
+}
+
+% ===== COLORS (Minimal) =====
+\definecolor{DeepObsidian}{HTML}{111111}
+\definecolor{LightGray}{gray}{0.95}
+\definecolor{AccentBlue}{HTML}{0B5394}
+% Backward-compatible names used by existing figures/plots.
+\definecolor{CyberCyan}{HTML}{0B5394}
+\definecolor{ElectricIndigo}{HTML}{3C78D8}
+
+% ===== TYPOGRAPHY =====
+\microtypesetup{protrusion=true, expansion=true}
+\renewcommand{\familydefault}{\rmdefault}
+
+% ===== PAGE NUMBERS (bottom-right, 3/4" from bottom) =====
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[R]{\thepage}
+\setlength{\footskip}{0.75in}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[R]{\thepage}
+}
+
+% ===== SIMPLE BOX (for highlights) =====
+\newenvironment{keyinsight}{%
+  \begin{center}\begin{tabular}{|p{0.92\textwidth}|}\hline\small
+}{%
+  \\\hline\end{tabular}\end{center}
+}
+
+% ===== HYPERREF =====
+\hypersetup{
+  colorlinks=true,
+  linkcolor=AccentBlue,
+  urlcolor=AccentBlue,
+  citecolor=AccentBlue
+}
+
+% ===== CUSTOM COMMANDS =====
+\newcommand{\thesistitle}{Cardiovascular Disease Prediction Using Machine Learning}
+\newcommand{\thesisauthor}{Sajjad Alam}
+\newcommand{\thesisdegree}{Bachelor of Science (Statistics)}
+\newcommand{\thesisdept}{Department of Statistics}
+\newcommand{\thesisuni}{University of Malakand}
+\newcommand{\thesisyear}{2026}
+
+% ===== CHAPTER STYLE =====
+% Keep default book style for strict university formatting.
+
+% ===== DOCUMENT =====
+\begin{document}
+\onehalfspacing
+
+% ---- FRONTMATTER (Roman numerals) ----
+\frontmatter
+
+% ----- TITLE PAGE (not numbered) -----
+\begin{titlepage}
+  \thispagestyle{empty}
+  \begin{center}
+    {\bfseries\MakeUppercase{Thesis}\par}
+    \vspace{18pt}
+    {\bfseries\MakeUppercase{\thesistitle}\par}
+    \vspace{18pt}
+    A thesis submitted in partial fulfillment of the requirements for the degree of\par
+    \vspace{10pt}
+    {\bfseries \thesisdegree\par}
+    \vspace{14pt}
+    {\bfseries By\par}
+    \vspace{10pt}
+    {\bfseries\MakeUppercase{\thesisauthor}\par}
+    \vspace{18pt}
+    \thesisdept\par
+    \vspace{6pt}
+    \thesisuni\par
+    \vspace{18pt}
+    {\bfseries\MakeUppercase{\thesisyear}\par}
+  \end{center}
+\end{titlepage}
+
+% Start roman page numbering at ii after the title page.
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+% ----- DECLARATION -----
+\chapter*{Declaration}
+\addcontentsline{toc}{chapter}{Declaration}
+I, \thesisauthor, hereby declare that this thesis titled ``\thesistitle'' is my own work and has not been submitted previously for any other degree or professional qualification.
+\par\bigskip
+Signature:\dotfill\par
+Date:\dotfill
+
+% ----- PLAGIARISM UNDERTAKING -----
+\chapter*{Plagiarism Undertaking}
+\addcontentsline{toc}{chapter}{Plagiarism Undertaking}
+I solemnly declare that the research work presented in this thesis is my own work. Any material used from other sources has been properly acknowledged and cited.
+\par\bigskip
+Signature:\dotfill\par
+Date:\dotfill
+
+% ----- SUBMISSION AUTHORIZATION CERTIFICATE -----
+\chapter*{Submission Authorization Certificate (For Evaluation)}
+\addcontentsline{toc}{chapter}{Submission Authorization Certificate}
+Certified that the thesis of \thesisauthor\ entitled ``\thesistitle'' has been reviewed in final form and permission is granted to submit it to \thesisuni\ for evaluation.
+\par\bigskip
+Supervisor:\dotfill\par
+Co-supervisor (if any):\dotfill\par
+Chairman:\dotfill
+
+% ----- APPROVAL CERTIFICATE -----
+\chapter*{Approval Certificate (For the Award of Degree)}
+\addcontentsline{toc}{chapter}{Approval Certificate}
+It is certified that the work contained in this thesis entitled ``\thesistitle'' was carried out by \thesisauthor\ under supervision and is adequate in scope and quality for the award of the degree.
+\par\bigskip
+Supervisor:\dotfill\par
+Co-supervisor (if any):\dotfill\par
+External Examiner:\dotfill\par
+Chairman:\dotfill
+
+% ----- DEDICATION -----
+\chapter*{Dedication}
+\addcontentsline{toc}{chapter}{Dedication}
+\begin{center}
+\emph{(Write your dedication here.)}
+\end{center}
+
+% ----- ACKNOWLEDGMENTS -----
+\chapter*{Acknowledgments}
+\addcontentsline{toc}{chapter}{Acknowledgments}
+I would like to thank my supervisor, teachers, and family for their guidance and support during this research. I also acknowledge the open-source community for providing high-quality machine learning tools.
+
+% ----- TABLE OF CONTENTS -----
+\tableofcontents
+\listoffigures
+\listoftables
+
+% ----- LIST OF ABBREVIATIONS -----
+\chapter*{List of Abbreviations}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+\begin{multicols}{2}
+\begin{itemize}
+\item CVD: Cardiovascular disease
+\item BMI: Body mass index
+\item ROC: Receiver operating characteristic
+\item AUC: Area under the curve
+\item SHAP: SHapley Additive exPlanations
+\end{itemize}
+\end{multicols}
+
+% ----- LIST OF PUBLICATIONS (optional) -----
+\chapter*{List of Publications}
+\addcontentsline{toc}{chapter}{List of Publications}
+\emph{(If any, list your publications here.)}
+
+% ----- ABSTRACT -----
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+This thesis develops a practical machine learning system for predicting cardiovascular disease risk from routinely collected health attributes. Using a structured cardiovascular dataset containing demographic, clinical, and lifestyle features, multiple model families are compared (Logistic Regression, SVM, Random Forest, Neural Network, and gradient boosting). The best-performing models are deployed behind a FastAPI service with a user-friendly web interface. The system returns a probability score, a thresholded decision, and explainability information (SHAP) to highlight key drivers behind each prediction.
+
+% ===== MAINMATTER (Arabic numerals) =====
+\mainmatter
+\pagenumbering{arabic}
+
+% ===== THESIS CONTENT (from r1.docx) =====
+\input{r1_content.tex}
+
+% ===== BACKMATTER =====
+\backmatter
+
+% ----- REFERENCES (manual) -----
+\chapter*{References}
+\addcontentsline{toc}{chapter}{References}
+\begin{thebibliography}{9}
+\bibitem{who_cvd}
+World Health Organization.
+\textit{Cardiovascular diseases (CVDs)}.
+WHO Fact Sheets, accessed 2026.
+
+\bibitem{kaggle_cardio}
+Kaggle.
+\textit{Cardiovascular Disease Dataset} (sulianova/cardiovascular-disease-dataset).
+Accessed 2026.
+
+\bibitem{xgboost}
+T. Chen and C. Guestrin.
+XGBoost: A Scalable Tree Boosting System.
+\textit{Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining}, 2016.
+
+\bibitem{shap}
+S. M. Lundberg and S.-I. Lee.
+A Unified Approach to Interpreting Model Predictions.
+\textit{Advances in Neural Information Processing Systems (NeurIPS)}, 2017.
+\end{thebibliography}
+
+% ----- APPENDIX (optional) -----
+\appendix
+\input{project_details.tex}
+
+\end{document}

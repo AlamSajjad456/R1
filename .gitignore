@@ -1,0 +1,32 @@
+# VS Code
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# ML models (VERY IMPORTANT)
+ml_system/models/
+*.joblib
+
+# Data outputs
+ml_system/data/
+ml_system/reports/
+
+# LaTeX build files
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.out
+
+# PDFs (generated thesis outputs)
+*.pdf
+
+# Word docs
+*.docx
+
+# OS files
+.DS_Store
+Thumbs.db
