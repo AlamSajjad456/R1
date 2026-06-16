@@ -21,8 +21,8 @@ ml_system/reports/
 *.lot
 *.out
 
-# PDFs (generated thesis outputs)
-*.pdf
+# # PDFs (generated thesis outputs)
+# *.pdf
 
 # Word docs
 *.docx

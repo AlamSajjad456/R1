@@ -1,0 +1,466 @@
+% !TEX program = pdflatex
+% University of Malakand Thesis – Final version with official frontmatter
+\documentclass[12pt, a4paper, oneside]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}       % Times Roman (no extra package)
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shadows}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgf-pie}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{qrcode}        % kept if you use it; optional
+\usepackage{siunitx}
+\usepackage{microtype}
+
+% ===== MARGINS (as per University guidelines) =====
+\geometry{
+  a4paper,
+  left=1.5in,
+  right=1in,
+  top=1in,
+  bottom=1in,
+  includeheadfoot
+}
+
+% ===== LINE SPACING 1.5 =====
+\setstretch{1.5}
+
+% ===== PAGE NUMBERING (bottom right, 0.75in from bottom) =====
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\footskip}{0.75in}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% ===== SECTION NUMBERING (1, 1.1, 1.1.1) =====
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\centering}{\chaptertitlename\ \thechapter}{1em}{\Large}
+\titlespacing*{\chapter}{0pt}{0pt}{30pt}
+\titleformat{\section}
+  {\normalfont\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titleformat{\subsection}
+  {\normalfont\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+\captionsetup{font=small, labelfont=bf, justification=raggedright}
+
+% ===== CUSTOM ENVIRONMENTS (from your original thesis) =====
+\definecolor{Primary}{HTML}{1B2A3A}
+\definecolor{Accent}{HTML}{3C78D8}
+\definecolor{Light}{HTML}{F5F7FA}
+\definecolor{Red}{HTML}{D62728}
+\definecolor{Purple}{HTML}{9467BD}
+
+\newtcolorbox{keyinsight}{
+  enhanced, breakable, colback=Accent!5, colframe=Accent!50,
+  leftrule=4pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+  arc=0pt, outer arc=0pt, left=10pt, right=10pt, top=6pt, bottom=6pt,
+  before=\vspace{8pt}, after=\vspace{8pt}
+}
+
+\newtcolorbox{takeaway}{
+  enhanced, breakable, colback=Accent!5, colframe=Accent!60,
+  leftrule=4pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+  arc=4pt, outer arc=4pt, left=12pt, right=12pt, top=10pt, bottom=10pt,
+  before=\vspace{12pt}, after=\vspace{12pt}, fontupper=\small
+}
+
+\setlist{nosep, leftmargin=*}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}
+
+% ===== THESIS METADATA =====
+\newcommand{\thesistitle}{Cardiovascular Disease Prediction Using Machine Learning}
+\newcommand{\thesisauthorA}{Sajjad Alam}
+\newcommand{\thesisauthorB}{Sajid Khan}
+\newcommand{\thesisauthorC}{Ihsan Ullah}
+\newcommand{\thesisdegree}{Bachelor of Science (Statistics)}   % or MPhil/PhD
+\newcommand{\thesisdept}{Department of Statistics}
+\newcommand{\thesisuni}{University of Malakand}
+\newcommand{\thesisyear}{2026}
+
+\begin{document}
+\onehalfspacing
+
+% ============================================================
+% FRONTMATTER – strictly following the provided format
+% ============================================================
+\frontmatter
+
+% ----- OUTER COVER PAGE (Annex-I style) -----
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{-0.5in}
+{\fontsize{11pt}{13pt}\selectfont Annex-I\par}
+\vspace{0.4in}
+
+{\fontsize{14pt}{16pt}\selectfont \textbf{MPhil/PhD THESIS}\par}
+{\fontsize{11pt}{13pt}\selectfont (Times New Roman, Bold and font size 14)\par}
+
+\vspace{0.6in}
+
+{\fontsize{16pt}{20pt}\selectfont \textbf{\MakeUppercase{\thesistitle}}\par}
+{\fontsize{11pt}{13pt}\selectfont (times new roman, bold, capital and font size 16)\par}
+
+\vspace{0.6in}
+
+\begin{center}
+  \includegraphics[width=2.4in]{logo.png}   % replace with your logo file
+\end{center}
+
+\vspace{0.6in}
+
+{\fontsize{14pt}{16pt}\selectfont \textbf{\MakeUppercase{\thesisauthorA}}\par}
+{\fontsize{11pt}{13pt}\selectfont (times new roman, bold, capital and font size 14)\par}
+\vspace{0.2in}
+{\fontsize{14pt}{16pt}\selectfont \textbf{\MakeUppercase{\thesisauthorB}}\par}
+\vspace{0.2in}
+{\fontsize{14pt}{16pt}\selectfont \textbf{\MakeUppercase{\thesisauthorC}}\par}
+
+\vfill
+
+{\fontsize{16pt}{20pt}\selectfont \textbf{\thesisdept}\par}
+\vspace{0.1in}
+{\fontsize{16pt}{20pt}\selectfont \textbf{\thesisuni}\par}
+\vspace{0.1in}
+{\fontsize{16pt}{20pt}\selectfont \textbf{\thesisyear}\par}
+\vspace{0.05in}
+{\fontsize{11pt}{13pt}\selectfont (times new roman, bold, and font size 16)\par}
+\end{titlepage}
+
+% ----- INNER COVER PAGE -----
+\newpage
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{-0.2in}
+
+{\fontsize{16pt}{20pt}\selectfont \textbf{\MakeUppercase{\thesistitle}}\par}
+{\fontsize{11pt}{13pt}\selectfont (times new roman, bold, capital and font size 16)\par}
+
+\vspace{0.4in}
+
+{\fontsize{12pt}{15pt}\selectfont A thesis submitted in partial fulfillment of the requirements for the degree of Master of Philosophy/PhD\par}
+\vspace{0.05in}
+{\fontsize{12pt}{15pt}\selectfont (Times New Roman and font size 12)\par}
+
+\vspace{0.4in}
+
+\begin{center}
+  \includegraphics[width=2.4in]{logo.png}
+\end{center}
+
+\vspace{0.3in}
+
+{\fontsize{12pt}{15pt}\selectfont By\par}
+
+\vspace{0.3in}
+
+{\fontsize{14pt}{16pt}\selectfont \textbf{\MakeUppercase{\thesisauthorA}}\par}
+\vspace{0.1in}
+{\fontsize{14pt}{16pt}\selectfont \textbf{\MakeUppercase{\thesisauthorB}}\par}
+\vspace{0.1in}
+{\fontsize{14pt}{16pt}\selectfont \textbf{\MakeUppercase{\thesisauthorC}}\par}
+{\fontsize{11pt}{13pt}\selectfont (times new roman, bold, capital and font size 14)\par}
+
+\vfill
+
+{\fontsize{14pt}{18pt}\selectfont \textbf{\thesisdept}\par}
+\vspace{0.1in}
+{\fontsize{14pt}{18pt}\selectfont \textbf{\thesisuni}\par}
+\vspace{0.1in}
+{\fontsize{14pt}{18pt}\selectfont \textbf{\thesisyear}\par}
+\vspace{0.05in}
+{\fontsize{11pt}{13pt}\selectfont (times new roman, bold, capital and font size 14)\par}
+\end{titlepage}
+
+% ----- PAGE NUMBERING STARTS WITH SMALL ROMAN ii -----
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+% ----- DECLARATION (three authors) -----
+\clearpage
+\thispagestyle{plain}
+\vspace*{0.5cm}
+\begin{center}
+{\fontsize{14pt}{16pt}\selectfont \textbf{Declaration}\par}
+\end{center}
+\vspace{0.4in}
+
+\noindent I, \textbf{\thesisauthorA}, \textbf{\thesisauthorB}, and \textbf{\thesisauthorC}, hereby declare that my MPhil/PhD thesis titled \textbf{``\thesistitle''} is my own work and has not been submitted previously by me for taking any other degree or professional qualification from \textbf{\thesisuni, Pakistan} or anywhere else in the country/world.
+
+\noindent At any time if my statement is found to be incorrect even after my graduation, the university has the right to withdraw my Ph.D. degree.
+
+\vspace{1.2in}
+
+\noindent \textbf{\thesisauthorA}\\
+Signature: \hrulefill \quad Date: \hrulefill
+
+\vspace{0.3in}
+\noindent \textbf{\thesisauthorB}\\
+Signature: \hrulefill \quad Date: \hrulefill
+
+\vspace{0.3in}
+\noindent \textbf{\thesisauthorC}\\
+Signature: \hrulefill \quad Date: \hrulefill
+
+% ----- PLAGIARISM UNDERTAKING -----
+\clearpage
+\thispagestyle{plain}
+\vspace*{0.5cm}
+\begin{center}
+{\fontsize{14pt}{16pt}\selectfont \textbf{Plagiarism Undertaking}\par}
+\end{center}
+\vspace{0.4in}
+
+\noindent I solemnly declare that the research work presented in the thesis titled \textbf{``\thesistitle''} is solely my research work with no significant contribution from any other person. Small contribution/help wherever taken has been duly acknowledged and that complete thesis has been written by me.
+
+\noindent I understand the zero-tolerance policy of the HEC and \textbf{\thesisuni, Pakistan} towards plagiarism. Therefore, I as an author of the above-titled thesis declare that no portion of my thesis has been plagiarized and any material used as a reference is properly referred/cited.
+
+\noindent I undertake that if I am found guilty of any formal plagiarism in the above-titled thesis even after the award of PhD degree, the University reserves the right to withdraw/revoke my PhD degree, and that HEC and the University have the right to publish my name on the HEC/University Website on which names of students are placed who submitted plagiarized thesis.
+
+\vspace{1.2in}
+
+\noindent \textbf{\thesisauthorA}\\
+Signature: \hrulefill \quad Date: \hrulefill
+
+\vspace{0.3in}
+\noindent \textbf{\thesisauthorB}\\
+Signature: \hrulefill \quad Date: \hrulefill
+
+\vspace{0.3in}
+\noindent \textbf{\thesisauthorC}\\
+Signature: \hrulefill \quad Date: \hrulefill
+
+% ----- SUBMISSION AUTHORIZATION CERTIFICATE (for Evaluation) -----
+\clearpage
+\thispagestyle{plain}
+\vspace*{0.5cm}
+\begin{center}
+{\fontsize{14pt}{16pt}\selectfont \textbf{Submission Authorization Certificate}\par}
+\vspace{0.05in}
+{\fontsize{11pt}{13pt}\selectfont (times new roman, bold, capital and font size 14)\par}
+\vspace{0.2in}
+{\fontsize{14pt}{16pt}\selectfont \textbf{(for Evaluation)}\par}
+\end{center}
+\vspace{0.4in}
+
+\noindent Certified that the thesis of \textbf{\thesisauthorA, \thesisauthorB, \thesisauthorC} entitled, \textbf{``\thesistitle''} has been reviewed in the final form. Permission as indicated by the signatures given below is granted to submit the copies to \thesisuni\ for the final Evaluation Process.
+
+\vspace{0.8in}
+
+\noindent
+\begin{tabular}{@{}p{0.45\textwidth}p{0.45\textwidth}@{}}
+\textbf{Supervisor} & \textbf{Co-supervisor (if any)} \\
+Signature: \hrulefill & Signature: \hrulefill \\
+Name, Designation \& Affiliation: \hrulefill & Name, Designation \& Affiliation: \hrulefill
+\end{tabular}
+
+\vspace{0.6in}
+\noindent \textbf{Chairman}\\
+Signature: \hrulefill\\
+Name, Designation \& Affiliation: \hrulefill
+
+% ----- APPROVAL CERTIFICATE (for Award of Degree) -----
+\clearpage
+\thispagestyle{plain}
+\vspace*{0.5cm}
+\begin{center}
+{\fontsize{14pt}{16pt}\selectfont \textbf{APPROVAL CERTIFICATE}\par}
+\vspace{0.05in}
+{\fontsize{11pt}{13pt}\selectfont (times new roman, bold, capital and font size 14)\par}
+\vspace{0.2in}
+{\fontsize{14pt}{16pt}\selectfont \textbf{(For the Award of Degree)}\par}
+\end{center}
+\vspace{0.4in}
+
+\noindent It is certified that the work contained in this thesis entitled, \textbf{``\thesistitle''} was carried out by \textbf{\thesisauthorA, \thesisauthorB, \thesisauthorC} under my/our supervision. In my/our opinion, it is fully adequate, in scope and quality, for the degree of Master of Philosophy/Doctor of Philosophy in \textbf{Statistics}.
+
+\vspace{0.6in}
+
+\noindent \textbf{Approved by:}
+
+\vspace{0.5in}
+
+\noindent
+\begin{tabular}{@{}p{0.45\textwidth}p{0.45\textwidth}@{}}
+\rule{2.2in}{0.4pt} & \rule{2.2in}{0.4pt} \\
+\textbf{Supervisor} & \textbf{Co-supervisor (if any)} \\
+& \\
+Name & Name \\
+Designation and Affiliation & Designation and Affiliation
+\end{tabular}
+
+\vspace{0.6in}
+
+\noindent \rule{2.2in}{0.4pt}\\
+\textbf{External Examiner}\\
+\\
+Name\\
+Designation and Affiliation
+
+\vspace{0.6in}
+
+\noindent \rule{2.2in}{0.4pt}\\
+\textbf{Chairman}
+
+% ----- DEDICATION -----
+\clearpage
+\thispagestyle{plain}
+\chapter*{Dedication}
+\addcontentsline{toc}{chapter}{Dedication}
+\begin{center}
+\emph{To our parents who always believed in us.}
+\end{center}
+
+% ----- ACKNOWLEDGMENTS -----
+\clearpage
+\thispagestyle{plain}
+\chapter*{Acknowledgments}
+\addcontentsline{toc}{chapter}{Acknowledgments}
+We want to thank our supervisor for putting up with our questions. Also thanks to our teachers and our families. And of course the open‑source community – without them this would have been way harder.
+
+% ----- TABLE OF CONTENTS -----
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Contents}
+\tableofcontents
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+% ----- LIST OF ABBREVIATIONS -----
+\clearpage
+\thispagestyle{plain}
+\chapter*{List of Abbreviations}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+\begin{multicols}{2}
+\begin{itemize}
+\item CVD: Cardiovascular disease
+\item BMI: Body mass index
+\item ROC: Receiver operating characteristic
+\item AUC: Area under the curve
+\item SHAP: SHapley Additive exPlanations
+\item API: Application Programming Interface
+\item ML: Machine Learning
+\item SVM: Support Vector Machine
+\item RF: Random Forest
+\item XGB: XGBoost
+\item LGBM: LightGBM
+\end{itemize}
+\end{multicols}
+
+% ----- LIST OF PUBLICATIONS -----
+\clearpage
+\thispagestyle{plain}
+\chapter*{List of Publications}
+\addcontentsline{toc}{chapter}{List of Publications}
+(If any)
+
+% ----- ABSTRACT -----
+\clearpage
+\thispagestyle{plain}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+This thesis builds a working machine learning setup that predicts cardiovascular disease risk from everyday health measurements. We took a structured dataset with demographic info, clinical readings, and lifestyle habits then compared several models: Logistic Regression, SVM, Random Forest, a Neural Network, and gradient boosting (XGBoost/LightGBM). The best ones are served through a FastAPI backend with a simple web frontend. The system gives back a probability score, a yes/no decision based on a threshold, and SHAP explanations that show which factors pushed the prediction up or down.
+
+% ============================================================
+% MAINMATTER – YOUR FULL THESIS CONTENT (unchanged)
+% ============================================================
+\mainmatter
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% ---------- COPY YOUR ENTIRE CHAPTERS FROM HERE ----------
+% \chapter{INTRODUCTION}
+% ... (all the text, figures, tables, keyinsight, takeaway, etc.)
+% \chapter{LITERATURE REVIEW}
+% \chapter{RESEARCH METHODOLOGY}
+% \chapter{RESULTS AND ANALYSIS}
+% \chapter{CONCLUSION AND FUTURE WORK}
+% \begin{thebibliography}{99}
+% ... references ...
+% \end{thebibliography}
+% \appendix
+% \chapter{Implementation Details}
+% ----------------------------------------------------------
+
+% ========== INSERT YOUR EXISTING CONTENT BELOW ==========
+% (For brevity, only a placeholder is shown. Replace with the full content from your original thesis.)
+
+\chapter{INTRODUCTION}
+\section{Background of the Study}
+Cardiovascular disease (CVD) is still one of the top causes of death around the world...
+% ... your complete introduction text ...
+
+\chapter{LITERATURE REVIEW}
+\section{Introduction}
+Lots of researchers have tried to predict CVD using ML...
+% ... your complete literature review ...
+
+\chapter{RESEARCH METHODOLOGY}
+\section{Introduction}
+Let’s get into how I actually did the work...
+% ... your complete methodology ...
+
+\chapter{RESULTS AND ANALYSIS}
+\section{Introduction}
+Table~\ref{tab:model_performance} shows the full comparison...
+% ... your complete results (including all tables, figures, etc.) ...
+
+\chapter{CONCLUSION AND FUTURE WORK}
+\section{Introduction}
+So there it is...
+% ... your complete conclusion ...
+
+% ----- REFERENCES (as in your original thesis) -----
+\clearpage
+\phantomsection
+\renewcommand{\bibname}{References}
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{References}
+\setlength{\itemsep}{0.25em}
+\bibitem{who_cvd} World Health Organization (WHO). Cardiovascular diseases (CVDs) fact sheet. Accessed 2026.
+\bibitem{kaggle_cardio} Kaggle. Cardiovascular Disease Dataset.
+% ... your full bibliography ...
+\end{thebibliography}
+
+\appendix
+\chapter{Implementation Details}
+\section{System Architecture}
+... (your appendix content) ...
+
+\end{document}

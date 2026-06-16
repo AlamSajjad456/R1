@@ -1,0 +1,67 @@
+﻿2026-04-08 21:24:36,999+0500 INFO  initexmf - this is MiKTeX Configuration Utility 5.5 (MiKTeX 25.12)
+2026-04-08 21:24:36,999+0500 INFO  initexmf - this process (11452) started by basic-miktex-25.12-x64 in directory C:\Users\Sajjad Alam PC\Downloads with command line: initexmf --default-paper-size=A4 --disable-installer --verbose
+2026-04-08 21:24:36,999+0500 INFO  initexmf - Operating on the private (per-user) MiKTeX setup
+2026-04-08 21:24:37,091+0500 INFO  initexmf - this process (11452) finishes with exit code 0
+2026-04-08 21:24:37,568+0500 INFO  initexmf - this is MiKTeX Configuration Utility 5.5 (MiKTeX 25.12)
+2026-04-08 21:24:37,568+0500 INFO  initexmf - this process (1192) started by basic-miktex-25.12-x64 in directory C:\Users\Sajjad Alam PC\Downloads with command line: initexmf --set-config-value=[MPM]AutoInstall=2 --disable-installer --verbose
+2026-04-08 21:24:37,569+0500 INFO  initexmf - Operating on the private (per-user) MiKTeX setup
+2026-04-08 21:24:37,569+0500 INFO  initexmf - Setting config value: [MPM]AutoInstall=2
+2026-04-08 21:24:37,660+0500 INFO  initexmf - this process (1192) finishes with exit code 0
+2026-04-08 21:24:47,559+0500 INFO  initexmf - this is MiKTeX Configuration Utility 5.5 (MiKTeX 25.12)
+2026-04-08 21:24:47,560+0500 INFO  initexmf - this process (4576) started by basic-miktex-25.12-x64 in directory C:\Users\Sajjad Alam PC\Downloads with command line: initexmf --modify-path --disable-installer --verbose
+2026-04-08 21:24:47,560+0500 INFO  initexmf - Operating on the private (per-user) MiKTeX setup
+2026-04-08 21:24:47,564+0500 ERROR initexmf.core - Setting new user PATH:
+2026-04-08 21:24:47,564+0500 ERROR initexmf.core - C:\Users\Sajjad Alam PC\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Python\Python313\;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Python\Launcher\;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Sajjad Alam PC\AppData\Roaming\npm;%USERPROFILE%\.dotnet\tools;C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\
+2026-04-08 21:24:47,800+0500 INFO  initexmf - this process (4576) finishes with exit code 0
+2026-04-08 21:24:48,157+0500 INFO  initexmf - this is MiKTeX Configuration Utility 5.5 (MiKTeX 25.12)
+2026-04-08 21:24:48,158+0500 INFO  initexmf - this process (3028) started by basic-miktex-25.12-x64 in directory C:\Users\Sajjad Alam PC\Downloads with command line: initexmf --report --disable-installer --verbose
+2026-04-08 21:24:48,158+0500 INFO  initexmf - Operating on the private (per-user) MiKTeX setup
+2026-04-08 21:24:48,171+0500 ERROR initexmf.core - Something is wrong with the PATH:
+2026-04-08 21:24:48,171+0500 ERROR initexmf.core - C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Python\Python313\;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Python\Launcher\;C:\Users\Sajjad Alam PC\AppData\Local\Microsoft\WindowsApps;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Sajjad Alam PC\AppData\Roaming\npm;C:\Users\Sajjad Alam PC\.dotnet\tools
+2026-04-08 21:24:48,189+0500 ERROR initexmf.core - Something is wrong with the PATH:
+2026-04-08 21:24:48,189+0500 ERROR initexmf.core - C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Python\Python313\;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Python\Launcher\;C:\Users\Sajjad Alam PC\AppData\Local\Microsoft\WindowsApps;C:\Users\Sajjad Alam PC\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Sajjad Alam PC\AppData\Roaming\npm;C:\Users\Sajjad Alam PC\.dotnet\tools
+2026-04-08 21:24:48,311+0500 INFO  initexmf - this process (3028) finishes with exit code 0
+2026-06-11 20:06:56,862+0500 INFO  initexmf - this is MiKTeX Configuration Utility 5.5 (MiKTeX 26.2)
+2026-06-11 20:06:56,863+0500 INFO  initexmf - this process (1228) started by powershell in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\initexmf.exe" --update-fndb
+2026-06-11 20:06:56,863+0500 INFO  initexmf - Operating on the private (per-user) MiKTeX setup
+2026-06-11 20:06:56,868+0500 INFO  initexmf - running: miktex --enable-installer fndb refresh
+2026-06-11 20:06:56,869+0500 INFO  initexmf.core - start process: miktex --enable-installer fndb refresh
+2026-06-11 20:06:57,676+0500 ERROR initexmf - sub-process error output has been saved to 'C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\miktex_2026-06-11-200657.out'
+2026-06-11 20:06:57,677+0500 FATAL initexmf - Windows API error 32: The process cannot access the file because it is being used by another process.
+2026-06-11 20:06:57,678+0500 FATAL initexmf - Info: path="C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\data\le\a4378dfd79a9058251533ecbb82e6748.fndb-5"
+2026-06-11 20:06:57,678+0500 FATAL initexmf - Source: Libraries\MiKTeX\Core\File\win\winFile.cpp
+2026-06-11 20:06:57,678+0500 FATAL initexmf - Line: 320
+2026-06-11 20:06:57,678+0500 INFO  initexmf - this process (1228) finishes with exit code 1
+2026-06-11 20:07:51,811+0500 INFO  initexmf - this is MiKTeX Configuration Utility 5.5 (MiKTeX 26.2)
+2026-06-11 20:07:51,811+0500 INFO  initexmf - this process (14940) started by powershell in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\initexmf.exe" --update-fndb
+2026-06-11 20:07:51,811+0500 INFO  initexmf - Operating on the private (per-user) MiKTeX setup
+2026-06-11 20:07:51,816+0500 INFO  initexmf - running: miktex --enable-installer fndb refresh
+2026-06-11 20:07:51,816+0500 INFO  initexmf.core - start process: miktex --enable-installer fndb refresh
+2026-06-11 20:07:52,517+0500 ERROR initexmf - sub-process error output has been saved to 'C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\miktex_2026-06-11-200752.out'
+2026-06-11 20:07:52,518+0500 FATAL initexmf - Windows API error 32: The process cannot access the file because it is being used by another process.
+2026-06-11 20:07:52,519+0500 FATAL initexmf - Info: path="C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\data\le\a4378dfd79a9058251533ecbb82e6748.fndb-5"
+2026-06-11 20:07:52,519+0500 FATAL initexmf - Source: Libraries\MiKTeX\Core\File\win\winFile.cpp
+2026-06-11 20:07:52,519+0500 FATAL initexmf - Line: 320
+2026-06-11 20:07:52,519+0500 INFO  initexmf - this process (14940) finishes with exit code 1
+2026-06-11 20:32:48,814+0500 INFO  initexmf - this is MiKTeX Configuration Utility 5.5 (MiKTeX 26.2)
+2026-06-11 20:32:48,814+0500 INFO  initexmf - this process (2308) started by powershell in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\initexmf.exe" --update-fndb
+2026-06-11 20:32:48,814+0500 INFO  initexmf - Operating on the private (per-user) MiKTeX setup
+2026-06-11 20:32:48,822+0500 INFO  initexmf - running: miktex --enable-installer fndb refresh
+2026-06-11 20:32:48,822+0500 INFO  initexmf.core - start process: miktex --enable-installer fndb refresh
+2026-06-11 20:32:49,702+0500 ERROR initexmf - sub-process error output has been saved to 'C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\miktex_2026-06-11-203249.out'
+2026-06-11 20:32:49,703+0500 FATAL initexmf - Windows API error 32: The process cannot access the file because it is being used by another process.
+2026-06-11 20:32:49,703+0500 FATAL initexmf - Info: path="C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\data\le\a4378dfd79a9058251533ecbb82e6748.fndb-5"
+2026-06-11 20:32:49,703+0500 FATAL initexmf - Source: Libraries\MiKTeX\Core\File\win\winFile.cpp
+2026-06-11 20:32:49,703+0500 FATAL initexmf - Line: 320
+2026-06-11 20:32:49,704+0500 INFO  initexmf - this process (2308) finishes with exit code 1
+2026-06-16 21:21:11,171+0500 INFO  initexmf - this is MiKTeX Configuration Utility 5.5 (MiKTeX 26.2)
+2026-06-16 21:21:11,172+0500 INFO  initexmf - this process (68) started by powershell in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\initexmf.exe" --dump=lualatex
+2026-06-16 21:21:11,172+0500 INFO  initexmf - Operating on the private (per-user) MiKTeX setup
+2026-06-16 21:21:11,177+0500 INFO  initexmf - running: miktex --enable-installer formats build lualatex
+2026-06-16 21:21:11,177+0500 INFO  initexmf.core - start process: miktex --enable-installer formats build lualatex
+2026-06-16 21:21:15,860+0500 ERROR initexmf - sub-process error output has been saved to 'C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\miktex_2026-06-16-212115.out'
+2026-06-16 21:21:15,862+0500 FATAL initexmf - The executed process did not succeed.
+2026-06-16 21:21:15,862+0500 FATAL initexmf - Info: fileName="C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\miktex-makefmt.exe", exitCode="1"
+2026-06-16 21:21:15,862+0500 FATAL initexmf - Source: 
+2026-06-16 21:21:15,862+0500 FATAL initexmf - Line: 0
+2026-06-16 21:21:15,871+0500 INFO  initexmf - this process (68) finishes with exit code 1

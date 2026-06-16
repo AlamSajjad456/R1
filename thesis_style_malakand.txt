@@ -1,0 +1,386 @@
+Initally three copies of ring binded thesis should be submitted by the candidate for
+
+evaluation and will become the property of University of Malakand. Text throughout the
+
+document should be in times new roman, font size 12 and line spacing 1.5. The size of the
+
+typing paper should be A4 with 1.5 inch margins to the left and 1 inch margins for the rest of
+
+three sides. All pages except the title page must be numbered at least 3/4" from the bottom
+
+of the page toward the right side. Use small Roman numerals for all preliminary pages. Begin
+
+the numbering with a small Roman numeral ii at least 3/4" from the bottom of the page
+
+toward the right side, following the title page. Use Arabic numerals beginning with the
+
+Introduction or Chapter I of the main text of the thesis, and continue with every sheet that
+
+follows, whether it be text, figures, explanation for figures or photos, tables, maps,
+
+appendices, etc., numbering pages to the end.
+
+The final five copies of the thesis must be hard bound in maroon color for PhD and black
+
+color for MPhil. The complete title of the thesis should be printed in block, golden letters at
+
+the top of the cover. In the middle of the cover, full name of the candidate should be
+
+printed. The spine should have the surname of the scholar, the year in which the thesis is
+
+presented (Sample of the title pages are given in Annex-1)
+
+Composition of Thesis
+
+The thesis shall preferably contain the following parts. However; the numbers of chapters
+
+may increase or decrease by the faculties/departments/centers/institutes, in the light of the
+
+subject or nature of the study.
+
+                  1. Abstract
+
+                  2. Introduction
+
+                  3. Experimental /Material and Methods
+
+                  4. Results and Discussions
+                   5. Conclusion
+
+                   6. References
+
+Subdivision - numbered sections
+
+Thesis should be clearly divided into defined and numbered sections. Subsections should be
+
+numbered 1.1 (then 1.1.1, 1.1.2, ...), 1.2, etc. (the abstract will not included in section
+
+numbering). Use this numbering also for internal cross-referencing: do not just refer to 'the
+
+text'. Any subsection may be given a brief heading. Each heading should appear on its own
+
+separate line.
+
+Abstract
+
+Abstract should be concise and factual. The abstract should state briefly the purpose of the
+
+research, the principal results and major conclusions. An abstract is often presented
+
+separately from the thesis, so it must be able to stand alone. For this reason, references
+
+should be avoided, but if essential, they must be cited in full, without reference to the
+
+reference list. Non-standard or uncommon abbreviations should be avoided, but if essential
+
+they must be defined at their first mention in the abstract itself.
+
+Introduction
+
+Introduction should be arranged by each scholar as per his/her Departmental criterion.
+
+Where the scholar will state the objectives of the work and provide an adequate
+
+background, adding a detailed literature review as a separate subsection. References should
+
+clearly be cited in the text following proper sequence and the scholar is supposed to arrange
+
+them at the end of his/her thesis. Indicate references by number(s) in brackets in line with
+
+the text. The actual authors can be referred to, but the reference number(s) must always be
+
+given.
+Experimental or Material and Methods
+
+Provide sufficient detail to allow the work to be reproduced. Methods already published
+
+should be indicated by a reference: only relevant modifications should be described.
+
+Results and Discussions
+
+There should be combined Results and Discussion section. Results should be clear and
+
+concise. And discussion should explore the significance of the results of the work. Avoid
+
+extensive citations and discussion of unpublished literature.
+
+Conclusions
+
+The main conclusions of the study may be presented in a conclusions section, which may
+
+stand alone or form a subsection of Results and Discussion section.
+
+References
+
+For references should contain all authors, title of the document, name of the publishing
+
+company/Journal, volume number, issue number, pagination and year in which it appears.
+
+Literature should include recent references as much as possible. Specimen references are
+
+given below.
+
+   1.      Thesis
+
+           Author’s name, title of the thesis in inverted commas, degree granting University,
+
+           location of the university, date of completion in bold, ie,
+
+           U. A. Khan, “Title of the thesis” PhD dissertation, University of Malakand,
+
+           Chakdara, 2012.
+
+   2.    Patents
+
+           Patent owner(s) separated by comma, “title of the patent” patent number, date
+
+           in bold. i.e.,
+       S. K. Sheem, “low-cost fibre optic pressure sensor” US patent No. 4,544,587,
+
+       March 20, 2011.
+
+3. Citation of a Journal
+
+       Authors separated by commas if more than one, title of publication in inverted
+
+       commas, name of the Journal in abbreviation and italic, Volume (Issue),
+
+       Pagination (year). i.e.
+
+       M. Sadiq, K. Saeed, “Biological applications of ABC” Am. J. Chem. 45(2), 1230-
+
+       1232 (2012).
+
+4. Meetings and conferences
+
+       Author 1, Author 2, etc “Title of presentation” Name of the meetings, Location of
+
+       meeting, Date of meeting; Editor 1, Editor 2, etc., Eds.; Publisher: place of
+
+       publication, Abstract No, pagination, (Year). i.e,
+
+       E. Garrone, P. Uhl “Structure and reactivity of surfaces” 11 th international
+
+       conference of material sciences, University of Peshawar, September 11-14, 2012;
+
+       A. Zecchina, G. Cost, Eds.; Wiley Interscience, New York (2013).
+
+
+5. Government publications
+
+       Author 1, Author 2 etc. “Document title Document” Government publication
+
+       number if any, publishing agency, place of publication, pagination (year) etc,
+
+       R. G. Thomas, S. E. Gebhardt “Nutritive values of food” Home and Garden Bulletin
+
+       No. 72, Department of Agriculture, Pakistan Government press, Islamabad (2009).
+
+6. Web sites
+
+       Author (if any), “Title of site” URL (accessed Month Day, Year), other identifying
+
+       information (if any). i.e.,
+
+       ACS publication division home page. http://pubs.acs.org (accessed Nov. 7, 2007)
+7. Book
+
+     Author, “Title of the book” (Editors if any, in parenthesis) Edition, Publishing
+
+     company, Location, Year of Publishing. i.e.,
+
+     L. Brandsma, “Synthesis of Acetylenes, Allenes, and Cumulenes – Methods and
+
+     Techniques” 1st Edition, Elsevier, Amsterdam, 2004.
+                        Annex-I
+
+             MPhil/PhD THESIS
+   (Times New roman, Bold and font size 14)
+
+
+
+
+        TITLE OF THE THESIS
+(times new roman, bold, capital and font size 16)
+
+
+
+
+            Name of the Scholar
+(times new roman, bold, capital and font size 14)
+
+
+
+
+       Department of …………….
+
+        University of Malakand
+
+             Year of submission
+
+   (times new roman, bold, and font size 16)
+                            TITLE OF THE THESIS
+                   (times new roman, bold, capital and font size 16)
+
+
+A thesis submitted in partial fulfillment of the requirements for the degree of Master of
+
+                                    Philosophy/PhD
+
+                          (Times New roman and font size 12)
+
+
+
+
+                                           By
+
+
+                                Name of the Scholar
+                   (times new roman, bold, capital and font size 14)
+
+
+
+
+                           Department of …………….
+
+                            University of Malakand
+
+                                 Year of submission
+
+                   (times new roman, bold, capital and font size 14)
+                                       Declaration
+
+I (Name of Scholar) hereby declare that my MPhil/PhD thesis titled “Thesis title” is my own
+work and has not been submitted previously by me for taking any other degree or
+professional qualification from University of Malakand, Pakistan or anywhere else in the
+country/world.
+
+At any time if my statement is found to be incorrect even after my graduation, the university
+has the right to withdraw my Ph.D. degree.
+
+
+
+
+Scholar Name
+
+
+
+Signature: _____________________
+
+Date: _____________
+                                 Plagiarism Undertaking
+
+I solemnly declare that the research work presented in the thesis titled “Thesis title” is solely
+
+my research work with no significant contribution from any other person. Small
+
+contribution/help wherever taken has been duly acknowledged and that complete thesis has
+
+been written by me.
+
+I understand the zero-tolerance policy of the HEC and University of Malakand, Pakistan
+
+towards plagiarism. Therefore, I as an author of the above-titled thesis declare that no
+
+portion of my thesis has been plagiarized and any material used as a reference is properly
+
+referred/cited.
+
+I undertake that if I am found guilty of any formal plagiarism in the above-titled thesis even
+
+after the award of PhD degree, the University reserves the right to withdraw/revoke my PhD
+
+degree, and that HEC and the University have the right to publish my name on the
+
+HEC/University Website on which names of students are placed who submitted plagiarized
+
+thesis.
+
+
+
+
+Name of Scholar
+
+Signature: _______________________
+
+Date: ____________________________
+                         Submission Authorization Certificate
+                      (times new roman, bold, capital and font size 14)
+
+                                      (for Evaluation)
+
+Certified that the thesis of (Name of Scolar) entitled, “Title of Thesis“has been eviewed in
+the final form. Permission as indicated by the signatures given below is granted to submit
+the copies to University of Malakand for the final Evaluation Process. (times new roman and
+font size 12)
+
+
+
+
+Supervisor                                                    Co-supeviser (if any)
+
+
+
+
+Name                                                           Name
+Designation and Affiliation                                  Designation and Affiliation
+(times new roman, bold and font size 12)
+
+
+
+
+Chairman
+(times new roman, bold and font size 12)
+                                  APPROVAL CERTIFICATE
+                       (times new roman, bold, capital and font size 14)
+
+                                 (For the Award of Degree)
+It is certified that the work contained in this thesis entitled, “Title of Thesis“.was carried out
+by (Name of Scholar) under my/our supervision. In my/our opinion, it is fully adequate, in
+scope and quality, for the degree of Master of Philosophy/Doctor of Philosopy in (Subject).
+
+
+
+
+Approved by:
+____________                                                     _______________
+Supervisor                                                      Co-supeviser (if any)
+
+
+Name                                                             Name
+Designation and Affiliation                                     Designation and Affiliation
+(times new roman, bold and font size 12)
+
+
+
+
+_________________
+External Examiner
+(times new roman, bold and font size 12)
+
+
+
+_____________
+Chairman
+(times new roman, bold and font size 12)
+    Dedication
+
+Mention your dedication
+Acknowledgments
+Table of Contents
+                                            List of Figures
+
+Figure 1.1. . ...................................................................... Error! Bookmark not defined.
+                                          List of Tables
+
+Table 1.1. An Example table. Chapter Number and Table Number within chapter . Error!
+
+     Bookmark not defined.
+
+Table 1.2. Another table. .................................................. Error! Bookmark not defined.
+List of Abbreviations
+List of Publications
+
+       (If any)
+Abstract
+

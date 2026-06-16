@@ -1,0 +1,200 @@
+﻿2026-04-12 00:04:09,964+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\pdflatex\2026-04-12-00-03-45.log"...
+2026-04-12 00:04:09,977+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex/data/le/pdftex\pdflatex.fmt"...
+2026-04-12 00:04:10,171+0500 INFO  miktex-makefmt - this process (9372) finishes with exit code 0
+2026-04-12 00:04:10,172+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-04-12 00:04:10,172+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-04-12 00:16:54,459+0500 INFO  miktex-makefmt - this process (7036) started by miktex in directory c:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: miktex-makefmt.exe --engine=pdftex --dest-name=pdflatex --no-dump pdflatex.ini --engine-option=-tcx=cp227.tcx --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-04-12 00:16:54,460+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-04-12 00:16:54,478+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\pdflatex.ini
+2026-04-12 00:16:54,485+0500 INFO  makefmt - Creating the pdflatex format file...
+2026-04-12 00:16:54,508+0500 INFO  makefmt - Running miktex-pdftex.exe...
+2026-04-12 00:16:54,508+0500 INFO  makefmt - running: miktex-pdftex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=pdflatex --job-name=pdflatex -tcx=cp227.tcx --enable-etex pdflatex.ini
+2026-04-12 00:16:54,508+0500 INFO  miktex-makefmt.core - start process: miktex-pdftex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=pdflatex --job-name=pdflatex -tcx=cp227.tcx --enable-etex pdflatex.ini
+2026-04-12 00:17:31,266+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\pdflatex\2026-04-12-00-16-54.log"...
+2026-04-12 00:17:31,281+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex/data/le/pdftex\pdflatex.fmt"...
+2026-04-12 00:17:31,311+0500 INFO  miktex-makefmt - this process (7036) finishes with exit code 0
+2026-04-12 00:17:31,312+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-04-12 00:17:31,313+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-04-12 12:17:03,658+0500 INFO  miktex-makefmt - this process (1720) started by miktex in directory c:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: miktex-makefmt.exe --engine=xetex --dest-name=xelatex --no-dump xelatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-04-12 12:17:03,658+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-04-12 12:17:03,671+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\latexconfig\xelatex.ini
+2026-04-12 12:17:03,676+0500 INFO  makefmt - Creating the xelatex format file...
+2026-04-12 12:17:03,684+0500 INFO  makefmt - Running miktex-xetex.exe...
+2026-04-12 12:17:03,684+0500 INFO  makefmt - running: miktex-xetex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=xelatex --job-name=xelatex --enable-etex xelatex.ini
+2026-04-12 12:17:03,685+0500 INFO  miktex-makefmt.core - start process: miktex-xetex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=xelatex --job-name=xelatex --enable-etex xelatex.ini
+2026-04-12 12:17:25,691+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\xelatex\2026-04-12-12-17-03.log"...
+2026-04-12 12:17:25,703+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex/data/le/xetex\xelatex.fmt"...
+2026-04-12 12:17:25,862+0500 INFO  miktex-makefmt - this process (1720) finishes with exit code 0
+2026-05-03 12:37:28,783+0500 INFO  miktex-makefmt - this process (15928) started by miktex in directory c:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: miktex-makefmt.exe --engine=pdftex --dest-name=pdflatex --no-dump pdflatex.ini --engine-option=-tcx=cp227.tcx --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-05-03 12:37:28,784+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-05-03 12:37:28,796+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\pdflatex.ini
+2026-05-03 12:37:28,800+0500 INFO  makefmt - Creating the pdflatex format file...
+2026-05-03 12:37:28,842+0500 INFO  makefmt - Running miktex-pdftex.exe...
+2026-05-03 12:37:28,842+0500 INFO  makefmt - running: miktex-pdftex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=pdflatex --job-name=pdflatex -tcx=cp227.tcx --enable-etex pdflatex.ini
+2026-05-03 12:37:28,842+0500 INFO  miktex-makefmt.core - start process: miktex-pdftex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=pdflatex --job-name=pdflatex -tcx=cp227.tcx --enable-etex pdflatex.ini
+2026-05-03 12:37:50,460+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\pdflatex\2026-05-03-12-37-28.log"...
+2026-05-03 12:37:50,472+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex/data/le/pdftex\pdflatex.fmt"...
+2026-05-03 12:37:50,494+0500 INFO  miktex-makefmt - this process (15928) finishes with exit code 0
+2026-05-03 12:37:50,494+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-05-03 12:37:50,494+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-05-03 12:41:39,143+0500 INFO  miktex-makefmt - this process (12352) started by miktex in directory c:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: miktex-makefmt.exe --engine=pdftex --dest-name=pdflatex --no-dump pdflatex.ini --engine-option=-tcx=cp227.tcx --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-05-03 12:41:39,144+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-05-03 12:41:39,154+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\pdflatex.ini
+2026-05-03 12:41:39,157+0500 INFO  makefmt - Creating the pdflatex format file...
+2026-05-03 12:41:39,171+0500 INFO  makefmt - Running miktex-pdftex.exe...
+2026-05-03 12:41:39,171+0500 INFO  makefmt - running: miktex-pdftex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=pdflatex --job-name=pdflatex -tcx=cp227.tcx --enable-etex pdflatex.ini
+2026-05-03 12:41:39,171+0500 INFO  miktex-makefmt.core - start process: miktex-pdftex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=pdflatex --job-name=pdflatex -tcx=cp227.tcx --enable-etex pdflatex.ini
+2026-05-03 12:41:57,154+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\pdflatex\2026-05-03-12-41-39.log"...
+2026-05-03 12:41:57,176+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex/data/le/pdftex\pdflatex.fmt"...
+2026-05-03 12:41:57,197+0500 INFO  miktex-makefmt - this process (12352) finishes with exit code 0
+2026-05-03 12:41:57,198+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-05-03 12:41:57,198+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-05-25 12:44:20,976+0500 INFO  miktex-makefmt - this process (14192) started by miktex in directory c:\Users\Sajjad Alam PC\Desktop\R1\project1\test with command line: miktex-makefmt.exe --engine=xetex --dest-name=xelatex --no-dump xelatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-05-25 12:44:20,977+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-05-25 12:44:21,006+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\latexconfig\xelatex.ini
+2026-05-25 12:44:21,013+0500 INFO  makefmt - Creating the xelatex format file...
+2026-05-25 12:44:21,029+0500 INFO  makefmt - Running miktex-xetex.exe...
+2026-05-25 12:44:21,030+0500 INFO  makefmt - running: miktex-xetex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=xelatex --job-name=xelatex --enable-etex xelatex.ini
+2026-05-25 12:44:21,030+0500 INFO  miktex-makefmt.core - start process: miktex-xetex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=xelatex --job-name=xelatex --enable-etex xelatex.ini
+2026-05-25 12:44:45,171+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\xelatex\2026-05-25-12-44-21.log"...
+2026-05-25 12:44:45,184+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex/data/le/xetex\xelatex.fmt"...
+2026-05-25 12:44:45,219+0500 INFO  miktex-makefmt - this process (14192) finishes with exit code 0
+2026-06-16 20:58:46,909+0500 INFO  miktex-makefmt - this process (15388) started by miktex in directory C:\Users\Sajjad Alam PC\Desktop with command line: miktex-makefmt.exe --engine=luahbtex --dest-name=lualatex --no-dump lualatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-06-16 20:58:46,910+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 20:58:46,925+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\lualatex.ini
+2026-06-16 20:58:46,930+0500 INFO  makefmt - Creating the lualatex format file...
+2026-06-16 20:58:46,973+0500 INFO  makefmt - Running miktex-luahbtex.exe...
+2026-06-16 20:58:46,973+0500 INFO  makefmt - running: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 20:58:46,973+0500 INFO  miktex-makefmt.core - start process: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 20:58:49,343+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\lualatex\2026-06-16-20-58-46.log"...
+2026-06-16 20:58:49,383+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 20:58:49,383+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 20:58:49,383+0500 FATAL miktex-makefmt - Info: 
+2026-06-16 20:58:49,383+0500 FATAL miktex-makefmt - Source: 
+2026-06-16 20:58:49,384+0500 FATAL miktex-makefmt - Line: 0
+2026-06-16 20:58:49,407+0500 INFO  miktex-makefmt - this process (15388) finishes with exit code 1
+2026-06-16 20:58:49,407+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-06-16 20:58:49,407+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-06-16 20:59:40,717+0500 INFO  miktex-makefmt - this process (11884) started by miktex in directory C:\Users\Sajjad Alam PC\Desktop with command line: miktex-makefmt.exe --engine=luahbtex --dest-name=lualatex --no-dump lualatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-06-16 20:59:40,718+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 20:59:40,728+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\lualatex.ini
+2026-06-16 20:59:40,732+0500 INFO  makefmt - Creating the lualatex format file...
+2026-06-16 20:59:40,745+0500 INFO  makefmt - Running miktex-luahbtex.exe...
+2026-06-16 20:59:40,745+0500 INFO  makefmt - running: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 20:59:40,745+0500 INFO  miktex-makefmt.core - start process: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 20:59:42,440+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\lualatex\2026-06-16-20-59-40.log"...
+2026-06-16 20:59:42,453+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 20:59:42,453+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 20:59:42,453+0500 FATAL miktex-makefmt - Info: 
+2026-06-16 20:59:42,453+0500 FATAL miktex-makefmt - Source: 
+2026-06-16 20:59:42,453+0500 FATAL miktex-makefmt - Line: 0
+2026-06-16 20:59:42,471+0500 INFO  miktex-makefmt - this process (11884) finishes with exit code 1
+2026-06-16 20:59:42,472+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-06-16 20:59:42,472+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-06-16 21:01:56,660+0500 INFO  miktex-makefmt - this process (6704) started by miktex in directory C:\Users\Sajjad Alam PC\Desktop with command line: miktex-makefmt.exe --engine=luahbtex --dest-name=lualatex --no-dump lualatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-06-16 21:01:56,660+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 21:01:56,674+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\lualatex.ini
+2026-06-16 21:01:56,677+0500 INFO  makefmt - Creating the lualatex format file...
+2026-06-16 21:01:56,695+0500 INFO  makefmt - Running miktex-luahbtex.exe...
+2026-06-16 21:01:56,695+0500 INFO  makefmt - running: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:01:56,696+0500 INFO  miktex-makefmt.core - start process: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:01:57,628+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\lualatex\2026-06-16-21-01-56.log"...
+2026-06-16 21:01:57,641+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:01:57,641+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:01:57,641+0500 FATAL miktex-makefmt - Info: 
+2026-06-16 21:01:57,641+0500 FATAL miktex-makefmt - Source: 
+2026-06-16 21:01:57,641+0500 FATAL miktex-makefmt - Line: 0
+2026-06-16 21:01:57,664+0500 INFO  miktex-makefmt - this process (6704) finishes with exit code 1
+2026-06-16 21:01:57,664+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-06-16 21:01:57,664+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-06-16 21:04:42,586+0500 INFO  miktex-makefmt - this process (15416) started by miktex in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: miktex-makefmt.exe --engine=luahbtex --dest-name=lualatex --no-dump lualatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-06-16 21:04:42,587+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 21:04:42,607+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\lualatex.ini
+2026-06-16 21:04:42,613+0500 INFO  makefmt - Creating the lualatex format file...
+2026-06-16 21:04:42,636+0500 INFO  makefmt - Running miktex-luahbtex.exe...
+2026-06-16 21:04:42,636+0500 INFO  makefmt - running: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:04:42,636+0500 INFO  miktex-makefmt.core - start process: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:05:13,846+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\lualatex\2026-06-16-21-04-42.log"...
+2026-06-16 21:05:13,857+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:05:13,858+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:05:13,858+0500 FATAL miktex-makefmt - Info: 
+2026-06-16 21:05:13,858+0500 FATAL miktex-makefmt - Source: 
+2026-06-16 21:05:13,858+0500 FATAL miktex-makefmt - Line: 0
+2026-06-16 21:05:13,881+0500 INFO  miktex-makefmt - this process (15416) finishes with exit code 1
+2026-06-16 21:05:13,882+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-06-16 21:05:13,882+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-06-16 21:15:25,147+0500 INFO  miktex-makefmt - this process (15792) started by miktex in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: miktex-makefmt.exe --engine=luahbtex --dest-name=lualatex --no-dump lualatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-06-16 21:15:25,147+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 21:15:25,170+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\lualatex.ini
+2026-06-16 21:15:25,177+0500 INFO  makefmt - Creating the lualatex format file...
+2026-06-16 21:15:25,197+0500 INFO  makefmt - Running miktex-luahbtex.exe...
+2026-06-16 21:15:25,198+0500 INFO  makefmt - running: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:15:25,198+0500 INFO  miktex-makefmt.core - start process: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:15:28,507+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\lualatex\2026-06-16-21-15-25.log"...
+2026-06-16 21:15:28,519+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:15:28,519+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:15:28,519+0500 FATAL miktex-makefmt - Info: 
+2026-06-16 21:15:28,519+0500 FATAL miktex-makefmt - Source: 
+2026-06-16 21:15:28,519+0500 FATAL miktex-makefmt - Line: 0
+2026-06-16 21:15:28,550+0500 INFO  miktex-makefmt - this process (15792) finishes with exit code 1
+2026-06-16 21:15:28,613+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-06-16 21:15:28,613+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-06-16 21:20:08,598+0500 INFO  miktex-makefmt - this process (6008) started by miktex in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: miktex-makefmt.exe --engine=luahbtex --dest-name=lualatex --no-dump lualatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-06-16 21:20:08,598+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 21:20:08,619+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\lualatex.ini
+2026-06-16 21:20:08,627+0500 INFO  makefmt - Creating the lualatex format file...
+2026-06-16 21:20:08,657+0500 INFO  makefmt - Running miktex-luahbtex.exe...
+2026-06-16 21:20:08,657+0500 INFO  makefmt - running: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:20:08,657+0500 INFO  miktex-makefmt.core - start process: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:20:10,466+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\lualatex\2026-06-16-21-20-08.log"...
+2026-06-16 21:20:10,486+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:20:10,486+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:20:10,486+0500 FATAL miktex-makefmt - Info: 
+2026-06-16 21:20:10,486+0500 FATAL miktex-makefmt - Source: 
+2026-06-16 21:20:10,486+0500 FATAL miktex-makefmt - Line: 0
+2026-06-16 21:20:10,513+0500 INFO  miktex-makefmt - this process (6008) finishes with exit code 1
+2026-06-16 21:20:10,548+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-06-16 21:20:10,548+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-06-16 21:21:12,788+0500 INFO  miktex-makefmt - this process (10260) started by miktex in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: miktex-makefmt.exe --engine=luahbtex --dest-name=lualatex --no-dump lualatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-06-16 21:21:12,789+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 21:21:12,810+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\lualatex.ini
+2026-06-16 21:21:12,816+0500 INFO  makefmt - Creating the lualatex format file...
+2026-06-16 21:21:12,841+0500 INFO  makefmt - Running miktex-luahbtex.exe...
+2026-06-16 21:21:12,841+0500 INFO  makefmt - running: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:21:12,841+0500 INFO  miktex-makefmt.core - start process: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:21:15,776+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\lualatex\2026-06-16-21-21-12.log"...
+2026-06-16 21:21:15,789+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:21:15,789+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:21:15,789+0500 FATAL miktex-makefmt - Info: 
+2026-06-16 21:21:15,789+0500 FATAL miktex-makefmt - Source: 
+2026-06-16 21:21:15,789+0500 FATAL miktex-makefmt - Line: 0
+2026-06-16 21:21:15,816+0500 INFO  miktex-makefmt - this process (10260) finishes with exit code 1
+2026-06-16 21:21:15,817+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-06-16 21:21:15,817+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-06-16 21:26:17,302+0500 INFO  miktex-makefmt - this process (2448) started by miktex in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: miktex-makefmt.exe --engine=luahbtex --dest-name=lualatex --no-dump lualatex.ini --enable-installer --miktex-disable-maintenance --miktex-disable-diagnose
+2026-06-16 21:26:17,303+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 21:26:17,318+0500 INFO  makefmt - found input file: C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex\latex\tex-ini-files\lualatex.ini
+2026-06-16 21:26:17,322+0500 INFO  makefmt - Creating the lualatex format file...
+2026-06-16 21:26:17,338+0500 INFO  makefmt - Running miktex-luahbtex.exe...
+2026-06-16 21:26:17,339+0500 INFO  makefmt - running: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:26:17,339+0500 INFO  miktex-makefmt.core - start process: miktex-luahbtex.exe --miktex-enable-installer --miktex-disable-maintenance --miktex-disable-diagnose --interaction=nonstopmode --initialize --halt-on-error --alias=lualatex --job-name=lualatex lualatex.ini
+2026-06-16 21:26:37,515+0500 INFO  makefmt - Installing "C:\Users\Sajjad Alam PC\AppData\Local\MiKTeX\miktex\log\makefmt\lualatex\2026-06-16-21-26-17.log"...
+2026-06-16 21:26:37,527+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:26:37,527+0500 FATAL miktex-makefmt - miktex-luahbtex.exe failed on lualatex.ini.
+2026-06-16 21:26:37,527+0500 FATAL miktex-makefmt - Info: 
+2026-06-16 21:26:37,527+0500 FATAL miktex-makefmt - Source: 
+2026-06-16 21:26:37,527+0500 FATAL miktex-makefmt - Line: 0
+2026-06-16 21:26:37,552+0500 INFO  miktex-makefmt - this process (2448) finishes with exit code 1
+2026-06-16 21:26:37,553+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\tex/generic/config\pdftexconfig.tex.in"
+2026-06-16 21:26:37,553+0500 WARN  miktex-makefmt.core - still open: "C:\Users\Sajjad Alam PC\AppData\Roaming\MiKTeX\tex\generic\config\pdftexconfig.tex"
+2026-06-16 21:27:17,661+0500 INFO  miktex-makefmt - this process (7920) started by powershell in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\miktex-makefmt.exe" --help
+2026-06-16 21:27:17,662+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 21:27:17,670+0500 INFO  miktex-makefmt - this process (7920) finishes with exit code 0
+2026-06-16 21:27:27,955+0500 INFO  miktex-makefmt - this process (15780) started by powershell in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\miktex-makefmt.exe" lualatex --engine=luahbtex --verbose
+2026-06-16 21:27:27,955+0500 INFO  miktex-makefmt - running on Windows 10.0.19045
+2026-06-16 21:27:27,974+0500 FATAL miktex-makefmt - The required TeX input file lualatex could not be found.
+2026-06-16 21:27:27,974+0500 FATAL miktex-makefmt - The required TeX input file lualatex could not be found.
+2026-06-16 21:27:27,974+0500 FATAL miktex-makefmt - Info: 
+2026-06-16 21:27:27,974+0500 FATAL miktex-makefmt - Source: 
+2026-06-16 21:27:27,974+0500 FATAL miktex-makefmt - Line: 0
+2026-06-16 21:27:27,998+0500 INFO  miktex-makefmt - this process (15780) finishes with exit code 1

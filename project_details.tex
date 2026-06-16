@@ -1,4 +1,4 @@
-﻿% University of Malakand Thesis – Final version with official frontmatter
+% University of Malakand Thesis – Final version with official frontmatter
 \documentclass[12pt, a4paper, oneside]{book}
 
 \usepackage[T1]{fontenc}
@@ -398,17 +398,17 @@ This one is yours.
 \addcontentsline{toc}{chapter}{Acknowledgments}
 We want to say thanks to a bunch of people. This thesis was a team effort even if only three names are on the cover.
 
-First, our supervisor. Honestly, we don’t know how you put up with us. Every time we showed you a broken plot or a model that gave worse results than flipping a coin, you listened, asked the right questions, and nudged us back on track. You never made us feel dumb – even when we asked basic stuff we should have remembered from class. Your door was always open, your feedback was always sharp, and your patience was endless. We learned more from you than from any textbook. Thank you for guiding three clueless students from a messy CSV file all the way to a working API. We hope this thesis makes you proud.
+First, our supervisor. Honestly, we don't know how you put up with us. Every time we showed you a broken plot or a model that gave worse results than flipping a coin, you listened, asked the right questions, and nudged us back on track. You never made us feel dumb – even when we asked basic stuff we should have remembered from class. Your door was always open, your feedback was always sharp, and your patience was endless. We learned more from you than from any textbook. Thank you for guiding three clueless students from a messy CSV file all the way to a working API. We hope this thesis makes you proud.
 
 To our teachers in the Department of Statistics at the University of Malakand. You taught us the basics – probability, regression, hypothesis testing – long before we ever typed \texttt{import sklearn}. Without that foundation, we would have been lost in the math behind every model. Thank you for making us do proofs by hand. We hated it then, but we get it now.
 
-To our families. Our parents believed in this project even when they didn’t fully understand what machine learning was. They gave us space to work late nights, endless cups of chai, and never complained when the dining table turned into a command center covered in laptops and notebooks. You are the reason we kept going when the models kept giving us garbage accuracy at 2 AM. We love you and we hope this makes you proud.
+To our families. Our parents believed in this project even when they didn't fully understand what machine learning was. They gave us space to work late nights, endless cups of chai, and never complained when the dining table turned into a command center covered in laptops and notebooks. You are the reason we kept going when the models kept giving us garbage accuracy at 2 AM. We love you and we hope this makes you proud.
 
-To the open‑source community. We literally could not have done this without you. scikit‑learn, XGBoost, LightGBM, TensorFlow, pandas, NumPy, Matplotlib, seaborn, pgfplots, and a dozen other libraries – all built by strangers who shared their work for free. That is a kind of generosity we hope to pay forward someday. A special thanks to the developers of FastAPI and Uvicorn for making deployment painless, and to the SHAP team for making black‑box models explainable. Also, to the person who released the Cardiovascular Disease dataset on Kaggle – you gave us a clean, well‑documented dataset and saved us months of data collection. We owe you a coffee.
+To the open-source community. We literally could not have done this without you. scikit-learn, XGBoost, LightGBM, TensorFlow, pandas, NumPy, Matplotlib, seaborn, pgfplots, and a dozen other libraries – all built by strangers who shared their work for free. That is a kind of generosity we hope to pay forward someday. A special thanks to the developers of FastAPI and Uvicorn for making deployment painless, and to the SHAP team for making black-box models explainable. Also, to the person who released the Cardiovascular Disease dataset on Kaggle – you gave us a clean, well-documented dataset and saved us months of data collection. We owe you a coffee.
 
 To our friends and classmates. You listened to us rant about ROC curves, confusion matrices, and LaTeX errors. You pretended to care when we explained the difference between precision and recall for the tenth time. And you dragged us outside when we had been staring at screens for too long. That kept us sane.
 
-To each other – Sajjad, Sajid, and Ihsan – we argued, we disagreed, we broke each other’s code, and then we fixed it together. This thesis is better because we did it as a team. Three brains really are better than one.
+To each other – Sajjad, Sajid, and Ihsan – we argued, we disagreed, we broke each other's code, and then we fixed it together. This thesis is better because we did it as a team. Three brains really are better than one.
 
 Finally, to anyone reading this thesis in the future if you find a bug, fix it and push a commit. If you build something useful on top of this work, tell us. We would love to know that our late nights helped someone else.
 
@@ -463,6 +463,7 @@ Malakand, 2026
 \chapter*{List of Publications}
 \addcontentsline{toc}{chapter}{List of Publications}
 (None)
+
 % ----- ABSTRACT -----
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -475,34 +476,34 @@ This thesis builds a working machine learning setup that predicts cardiovascular
 % ================== CHAPTER 1 ==================
 \chapter{INTRODUCTION}
 
-\section{Background of the Study}
-Cardiovascular disease kills more people than anything else on the planet. It goes by CVD for short. Under that label you will find heart failure. Coronary artery disease. Hypertension. Stroke. The World Health Organization has been saying the same thing for years — millions of deaths every year across every country. This is not just a medical headache. It is a public health disaster that never really goes away.
+\section{Why Cardiovascular Disease Prediction Still Matters}
+Cardiovascular disease kills more people than anything else on the planet. It goes by CVD for short. Under that label you will find heart failure. Coronary artery disease. Hypertension. Stroke. The World Health Organization has been saying the same thing for years — millions of deaths, every year, across every country. This is not just a medical headache. It is a public health disaster that never really goes away.
 
-A lot of it comes down to how people live. Diet. Exercise. Smoking. Drinking. Weight. These things stack on top of each other. A person with high blood pressure often has high cholesterol too. Someone who smokes is probably not jogging every morning. The damage builds slowly and by the time a heart attack or a stroke shows up the warning signs have been sitting there for years. That is why catching the risk early makes such a huge difference. If a doctor can tell a forty‑year‑old patient that their numbers are heading the wrong way there is still time to change things. If that same patient only finds out at sixty when they are in the back of an ambulance the options are a lot more limited.
+A lot of it comes down to how people live. Diet. Exercise. Smoking. Drinking. Weight. These things stack on top of each other. A person with high blood pressure often has high cholesterol too. Someone who smokes is probably not jogging every morning. The damage builds slowly, and by the time a heart attack or a stroke shows up, the warning signs have been sitting there for years. That is why catching the risk early makes such a huge difference. If a doctor can tell a forty-year-old patient that their numbers are heading the wrong way, there is still time to change things. If that same patient only finds out at sixty when they are in the back of an ambulance, the options are a lot more limited.
 
-The usual way of doing this is a doctor looking at test results running through a checklist and making a judgment based on experience and clinical guidelines. That works fine a lot of the time. But it is also slow and it depends on the doctor being alert, having enough time, and not being exhausted after seeing fifty other patients. The human brain can only juggle so many variables at once. A dataset with twenty different measurements and a hundred thousand rows — no human can see every pattern buried in there. A computer can. That is where machine learning comes in.
+The usual way of doing this is a doctor looking at test results, running through a checklist, and making a judgment based on experience and clinical guidelines. That works fine a lot of the time. But it is also slow, and it depends on the doctor being alert, having enough time, and not being exhausted after seeing fifty other patients. The human brain can only juggle so many variables at once. A dataset with twenty different measurements and a hundred thousand rows — no human can see every pattern buried in there. A computer can. That is where machine learning comes in.
 
-Machine learning models do not need to be told the medical rules. They just need examples. Feed them enough patient records with known outcomes and they will figure out which combinations of things point toward disease and which do not. In this thesis the dataset has age gender blood pressure cholesterol, glucose, smoking, alcohol use, and physical activity. All of these are basic things that any clinic can measure in five minutes. Nothing fancy. No genetic tests. No expensive scans. The goal was to see if a model could take those ordinary numbers and give back a useful risk score — not a diagnosis, just a signal that says maybe this patient needs a closer look. The idea is not to replace the doctor. It is to give the doctor an extra pair of eyes that never blinks.
+Machine learning models do not need to be told the medical rules. They just need examples. Feed them enough patient records with known outcomes, and they will figure out which combinations of things point toward disease and which do not. In this thesis, the dataset has age, gender, blood pressure, cholesterol, glucose, smoking, alcohol use, and physical activity. All of these are basic things that any clinic can measure in five minutes. Nothing fancy. No genetic tests. No expensive scans. The goal was to see if a model could take those ordinary numbers and give back a useful risk score — not a diagnosis, just a signal that says maybe this patient needs a closer look. The idea is not to replace the doctor. It is to give the doctor an extra pair of eyes that never blinks.
 
-\section{Problem Statement}
+\section{The Gaps in Current Risk Assessment}
 Heart disease still kills people who could have been saved. Early detection works, but the process of screening — going through patient histories, checking lab results, weighing risk factors by hand — does not scale well. In a busy hospital or a small clinic, the doctor is under pressure. Some signals get missed. A borderline blood pressure reading in a younger patient might not raise any alarms even though it should.
 
 Medical data is messy and full of interactions that are not obvious. Age and cholesterol interact one way. Blood pressure and glucose interact another way. A linear checklist cannot catch all of that. Machine learning can, in theory, do a better job because it learns these interactions from the data itself. But the hard part is knowing which algorithm to trust. Different models have different strengths and different ways of being wrong. Some are fast but too simple. Some are powerful but impossible to understand. You cannot just pick one at random and hope for the best. This thesis tries to solve that by comparing a bunch of different models on the same dataset, with the same preprocessing, and the same evaluation metrics, so the comparison is actually fair.
 
-\section{Research Objectives}
+\section{What This Thesis Set Out to Do}
 The big goal was simple — build a model that can predict CVD risk from everyday health measurements and actually work. But to get there, I broke the work into five smaller pieces.
 
 \textbf{First, understand the data.} Not just run \texttt{df.describe()} and move on. I wanted to see how the features relate to each other. Does age push blood pressure up? Do smokers have worse cholesterol? I made plots and calculated correlations until I felt like I knew the dataset by heart. That step saved me from making dumb mistakes later.
 
-\textbf{Second, clean and prepare the data.} Real‑world data is never ready to go. I had to remove rows with impossible blood pressure readings, convert age from days to years, scale the continuous variables, and create some new features like BMI and hypertension flags. Every choice got written down so someone else could repeat the exact same steps.
+\textbf{Second, clean and prepare the data.} Real-world data is never ready to go. I had to remove rows with impossible blood pressure readings, convert age from days to years, scale the continuous variables, and create some new features like BMI and hypertension flags. Every choice got written down so someone else could repeat the exact same steps.
 
-\textbf{Third, train a bunch of different models.} I did not want to bet everything on one algorithm. I picked logistic regression as a simple baseline, random forest because it handles non‑linear stuff well, SVM for its ability to find a clean boundary, and gradient boosting methods like XGBoost and LightGBM because they often win on tabular data. A stacking ensemble and a small neural network were added to round things out. Every model got trained on the same data with the same random seed.
+\textbf{Third, train a bunch of different models.} I did not want to bet everything on one algorithm. I picked logistic regression as a simple baseline, random forest because it handles non-linear stuff well, SVM for its ability to find a clean boundary, and gradient boosting methods like XGBoost and LightGBM because they often win on tabular data. A stacking ensemble and a small neural network were added to round things out. Every model got trained on the same data with the same random seed.
 
-\textbf{Fourth, evaluate them properly.} Accuracy by itself is a trap, especially in medicine. A model can be 90\% accurate and still miss almost every sick patient if the classes are imbalanced. My dataset was balanced, but I still used precision, recall, F1 score, ROC‑AUC, and confusion matrices so I could see exactly what kind of mistakes each model was making. Recall for the disease class was the number I cared about most.
+\textbf{Fourth, evaluate them properly.} Accuracy by itself is a trap, especially in medicine. A model can be 90\% accurate and still miss almost every sick patient if the classes are imbalanced. My dataset was balanced, but I still used precision, recall, F1 score, ROC-AUC, and confusion matrices so I could see exactly what kind of mistakes each model was making. Recall for the disease class was the number I cared about most.
 
-\textbf{Fifth, find out which features matter.} I did not want a black box. I wanted to know why the model made a decision, because a doctor will never trust a tool that cannot explain itself. I used built‑in importance scores from tree‑based models and permutation importance for the others. The list came back loud and clear: blood pressure, cholesterol, and age were the strongest predictors. Exactly what the medical textbooks say. That gave me confidence that the model was learning real signals and not just memorizing noise.
+\textbf{Fifth, find out which features matter.} I did not want a black box. I wanted to know why the model made a decision, because a doctor will never trust a tool that cannot explain itself. I used built-in importance scores from tree-based models and permutation importance for the others. The list came back loud and clear: blood pressure, cholesterol, and age were the strongest predictors. Exactly what the medical textbooks say. That gave me confidence that the model was learning real signals and not just memorizing noise.
 
-\section{Research Questions}
+\section{The Three Questions I Tried to Answer}
 The whole study was built around three questions.
 
 Can machine learning models correctly spot cardiovascular disease using only basic clinical data — the kind you could collect in a small clinic with a blood pressure cuff and a questionnaire?
@@ -511,39 +512,39 @@ Among the models I tested, which one gives the best balance of accuracy, recall,
 
 What are the most important risk factors according to the best model? Knowing that could help doctors focus on the variables that really drive risk, instead of wasting time on ones that barely move the needle.
 
-\section{Significance of the Study}
+\section{Why This Work Could Be Useful}
 This study shows that machine learning can actually help predict heart disease, and it does not need a supercomputer or a team of PhDs to pull it off. I am not the first person to try this, but I did my own version and I did it in a way that is fully reproducible. The model, the code, and the whole pipeline are public.
 
 If the approach works well, a doctor could type in a patient's numbers and get back a risk score in under a second. That is not a diagnosis. It is a prompt — a quick signal that says maybe this patient needs a second look. In a setting where a doctor sees a hundred patients a day, that kind of tool could be the difference between catching something early and missing it completely.
 
 I also hope the work encourages other students to give machine learning a try. There is still a feeling that AI is too complicated for normal people. My laptop handled everything in under ten minutes. If I can do it, plenty of other people can too.
 
-\section{Scope of the Study}
+\section{What This Study Covers—and What It Doesn't}
 I kept the project tight. I used one public dataset — the Kaggle Cardiovascular Disease dataset. No extra data collection, no medical images, no genetic sequences. Just numbers and categories from a Russian survey. That means the results might not transfer perfectly to a different population or a different country without further testing.
 
 I did everything from preprocessing to evaluation, and I even built a working web API so the model could be tested in a browser. What I did not do was deploy it in a real hospital. That kind of step needs ethics approval, integration with hospital systems, and a lot of oversight that is beyond a student thesis. The work here is a foundation, and the next person can take it further.
 
-\section{Structure of the Thesis}
+\section{How the Thesis Is Organized}
 The rest of the thesis follows a straight path. Chapter 2 is the literature review — what other people have done and where my work fits. Chapter 3 explains exactly what I did, from cleaning to model training, so that someone else could reproduce the whole thing. Chapter 4 shows the results, with tables and plots, and answers my three research questions. Chapter 5 wraps it up with conclusions, limitations, and ideas for future work. Nothing fancy, just a clear layout that moves from problem to method to answer.
 
 \chapter{LITERATURE REVIEW}
 
-\section{Introduction}
+\section{What We Already Know About CVD Risk}
 People have been trying to predict heart disease with machine learning for a while now. This chapter walks through some of that work. I looked at which algorithms got used. What datasets people picked. What they found. And what they missed. That last part is where my study steps in.
 
-\section{Cardiovascular Disease and Its Risk Factors}
-CVD is a catch‑all name. It covers heart attacks. Strokes. High blood pressure. Heart failure. The list goes on. Risk factors pile up. Age. Being male puts you at higher risk earlier in life. High blood pressure. High cholesterol. Diabetes. Extra body weight. Smoking. Drinking too much. Not moving your body enough. Some of these you can change. Some you cannot. The WHO keeps saying lifestyle is a massive piece of the puzzle.
+\section{The Known Risk Factors}
+CVD is a catch-all name. It covers heart attacks. Strokes. High blood pressure. Heart failure. The list goes on. Risk factors pile up. Age. Being male puts you at higher risk earlier in life. High blood pressure. High cholesterol. Diabetes. Extra body weight. Smoking. Drinking too much. Not moving your body enough. Some of these you can change. Some you cannot. The WHO keeps saying lifestyle is a massive piece of the puzzle.
 
-In real life, risk does not come from one number. Age and blood pressure interact. Cholesterol and glucose interact. Systolic and diastolic pressure interact. A dataset puts all these variables in one place. That lets a model hunt for patterns that are too tangled for a human to spot during a five‑minute appointment. The model is not replacing a doctor’s brain. It is just giving that brain a head start.
+In real life, risk does not come from one number. Age and blood pressure interact. Cholesterol and glucose interact. Systolic and diastolic pressure interact. A dataset puts all these variables in one place. That lets a model hunt for patterns that are too tangled for a human to spot during a five-minute appointment. The model is not replacing a doctor's brain. It is just giving that brain a head start.
 
-The medical meaning of each variable matters a lot. Blood pressure is the heavy hitter. It damages vessels over time. Cholesterol and glucose signal long‑term metabolic trouble. Smoking, alcohol, and activity are weaker on their own but they still help because they paint a picture of someone’s daily habits. This thesis feeds those variables into a pipeline and checks whether the model’s output agrees with what medicine already knows.
+The medical meaning of each variable matters a lot. Blood pressure is the heavy hitter. It damages vessels over time. Cholesterol and glucose signal long-term metabolic trouble. Smoking, alcohol, and activity are weaker on their own but they still help because they paint a picture of someone's daily habits. This thesis feeds those variables into a pipeline and checks whether the model's output agrees with what medicine already knows.
 
-\section{Machine Learning in Healthcare -- A Quick Overview}
+\section{Machine Learning in Healthcare}
 Machine learning is about letting computers figure out patterns from data instead of writing every rule by hand. Healthcare has used it for diagnosis. For predicting who might get readmitted. For reading scans and images. It shines when the dataset has a bunch of variables and the relationships are messy.
 
 Common models include logistic regression which is simple and easy to explain. Decision trees that you can draw on a napkin. Random forests that combine a bunch of trees to avoid overfitting. Support vector machines that draw a line between groups. Neural networks that can model really complex stuff but need a lot of tuning. Each has strengths and weaknesses so this study throws several of them at the same data instead of betting everything on one.
 
-\section{Previous Studies on CVD Prediction}
+\section{What Other Studies Found}
 There is a lot of published work. I will mention a few pieces that shaped my thinking.
 
 Detrano and his team used logistic regression and decision trees on the Cleveland heart dataset back in 1989. Logistic regression gave them a solid baseline. The decision trees helped them see which features mattered.
@@ -552,13 +553,13 @@ Later studies brought in SVMs and random forests. Random forest usually won beca
 
 More recently gradient boosting stole the spotlight. XGBoost and LightGBM build trees one after another. Each new tree tries to clean up the errors from the last one. These methods crush a lot of Kaggle competitions so I expected them to do well here too.
 
-Neural networks have been tried as well. They can model very tangled relationships. But they eat data and computing time. For a medium‑sized tabular dataset like mine gradient boosting often works just as well or even better.
+Neural networks have been tried as well. They can model very tangled relationships. But they eat data and computing time. For a medium-sized tabular dataset like mine gradient boosting often works just as well or even better.
 
 Table~\ref{tab:related_work} lines up earlier work next to what this thesis does differently.
 
 \begin{table}[H]
 \centering
-\caption{Summary of related CVD prediction studies}
+\caption{Algorithms, datasets, and contributions of key CVD prediction studies compared to this work}
 \label{tab:related_work}
 \small
 \rowcolors{1}{white}{gray!10}
@@ -579,14 +580,14 @@ Deployment-oriented studies & Web APIs, mobile apps, EHR integration & Turns mod
 
 My work tries to fill in some of those gaps. I did not stop at training one model and reporting a single number. I cleaned the raw data. I built medical features from scratch. I compared seven algorithms under the same rules. I tested a version with fewer features to see how robust the models really are. I picked a threshold that makes sense for screening. And I wrapped the whole thing in a web API. That pushes the project past a notebook and closer to something a real clinic could try.
 
-\section{Comparative Analysis of ML Algorithms}
+\section{Choosing the Right ML Model}
 Here is my honest take on each one.
 
 Logistic regression is fast and you can explain it to anyone. The big weakness is it assumes a straight line relationship. Real health data does not always play by that rule.
 
-Decision trees look nice on paper. They capture non‑linear splits. But one tree by itself tends to memorize noise if you let it grow too deep.
+Decision trees look nice on paper. They capture non-linear splits. But one tree by itself tends to memorize noise if you let it grow too deep.
 
-Random forest fixes that by averaging many trees. It is sturdy. It rarely blows up. It is my go‑to when I want a reliable baseline.
+Random forest fixes that by averaging many trees. It is sturdy. It rarely blows up. It is my go-to when I want a reliable baseline.
 
 SVM can draw a clean decision boundary when the classes are separable. The tricky part is picking the right kernel and the right C value. Tuning takes time.
 
@@ -594,14 +595,14 @@ Gradient boosting — XGBoost and LightGBM — is the king of tabular data right
 
 Neural networks are the most flexible. They can fit almost anything. But they are hungry for data and compute and they need careful tuning. For a dataset this size they often do not justify the extra effort.
 
-\section{Research Gap -- Why This Study is Needed}
+\section{Where the Literature Leaves Room for This Study}
 After reading a stack of papers I noticed a pattern. Many studies test only two or three models. Some use very small datasets. A lot of them stop at reporting accuracy and never show what the model would look like in a real workflow. They do not talk about deployment. They do not talk about explainability. They do not discuss what threshold to use for screening.
 
 So the gap is not that CVD prediction is new. It is not new. The gap is that most published work leaves the model on the page. My thesis tries to carry it all the way to a working service. That means cleaning the data, documenting every step, comparing seven models, picking a threshold that favors recall, and building an API that returns a prediction with a SHAP explanation. That is a lot more than a confusion matrix.
 
 Reproducibility is another gap I wanted to close. Some papers only give you accuracy. I give the dataset source. The cleaning rules. The exact hyperparameters. The seed. The code. Anyone should be able to clone the repo and get the same numbers.
 
-\section{Summary of Literature Review}
+\section{Key Takeaways from the Literature}
 Plenty of evidence says ML can predict CVD. The ensemble methods and gradient boosting usually come out on top. But not many studies go beyond model comparison to a real deployable tool. That is the space my project sits in. The next chapter walks through exactly how I built it.
 
 \begin{takeaway}
@@ -616,58 +617,58 @@ Plenty of evidence says ML can predict CVD. The ensemble methods and gradient bo
 
 \chapter{RESEARCH METHODOLOGY}
 
-\section{Introduction}
-Okay so this is the how‑I‑did‑it chapter. I’ll walk through the dataset, how I cleaned it, what features I built, which models I picked, how I tuned them, and how I checked if they were any good. I wrote down every step so someone else can grab the same code and get the same numbers.
+\section{Overview of My Experimental Approach}
+Okay so this is the how-I-did-it chapter. I'll walk through the dataset, how I cleaned it, what features I built, which models I picked, how I tuned them, and how I checked if they were any good. I wrote down every step so someone else can grab the same code and get the same numbers.
 
-Before I even opened a notebook, I knew raw medical data was gonna be messy. I’ve seen it before. So I spent a lot of time just staring at the CSV, looking for stuff that made no sense. That cleaning part? It’s boring, yeah. But it’s also the most important thing. If you feed garbage into a model, you get garbage out. So I took it seriously.
+Before I even opened a notebook, I knew raw medical data was gonna be messy. I've seen it before. So I spent a lot of time just staring at the CSV, looking for stuff that made no sense. That cleaning part? It's boring, yeah. But it's also the most important thing. If you feed garbage into a model, you get garbage out. So I took it seriously.
 
-Every choice here – the split ratio, the random seed, the cleaning rules – was made so the whole thing is reproducible. I didn’t want a model that only works on my laptop. Honestly, reproducibility is a weak spot in a ton of ML papers, and I didn’t want to be one of those guys.
+Every choice here – the split ratio, the random seed, the cleaning rules – was made so the whole thing is reproducible. I didn't want a model that only works on my laptop. Honestly, reproducibility is a weak spot in a ton of ML papers, and I didn't want to be one of those guys.
 
-\section{Dataset Description}
-I grabbed the Cardiovascular Disease dataset from Kaggle – the one by sulianova. It’s public, no privacy headaches. Original size was exactly 70,000 rows. After cleaning (mostly kicking out weird blood pressure readings) I ended up with 68,576 rows. Still plenty of data.
+\section{The Dataset I Used and Why I Chose It}
+I grabbed the Cardiovascular Disease dataset from Kaggle – the one by sulianova. It's public, no privacy headaches. Original size was exactly 70,000 rows. After cleaning (mostly kicking out weird blood pressure readings) I ended up with 68,576 rows. Still plenty of data.
 
-The file had 12 columns. One column called `id` was just a row number so I dropped it immediately. That left 11 features and the target `cardio`. If `cardio` is 1, the person has heart disease; if it’s 0, they don’t. Simple.
+The file had 12 columns. One column called `id` was just a row number so I dropped it immediately. That left 11 features and the target `cardio`. If `cardio` is 1, the person has heart disease; if it's 0, they don't. Simple.
 
-Here’s what each feature means – I kept this list on a sticky note while coding.
+Here's what each feature means – I kept this list on a sticky note while coding.
 
 \textbf{age} – originally in days, I divided by 365.25 to get years. More readable.
 
-\textbf{gender} – 1 for female, 2 for male. A bit old‑school but fine.
+\textbf{gender} – 1 for female, 2 for male. A bit old-school but fine.
 
 \textbf{height} – centimeters. I converted to meters only for BMI.
 
 \textbf{weight} – kilograms. Makes BMI math easy.
 
-\textbf{ap\_hi} – systolic blood pressure, the “top” number.
+\textbf{ap\_hi} – systolic blood pressure, the "top" number.
 
-\textbf{ap\_lo} – diastolic blood pressure, the “bottom” number.
+\textbf{ap\_lo} – diastolic blood pressure, the "bottom" number.
 
 \textbf{cholesterol} – three levels: 1 normal, 2 above normal, 3 well above normal. No real mg/dL values, just categories.
 
-\textbf{gluc} – same three‑level scale for glucose. Categories only.
+\textbf{gluc} – same three-level scale for glucose. Categories only.
 
-\textbf{smoke} – 1 if they smoke, 0 if not. Self‑reported, so I took it with a grain of salt.
+\textbf{smoke} – 1 if they smoke, 0 if not. Self-reported, so I took it with a grain of salt.
 
 \textbf{alco} – 1 if they drink alcohol, 0 if not. Same problem as smoking: people lie.
 
-\textbf{active} – 1 if they do regular physical activity. Who knows what “regular” means.
+\textbf{active} – 1 if they do regular physical activity. Who knows what "regular" means.
 
-One thing bugged me: cholesterol and gluc are ordinal categories, not real numbers. That limits the model a bit. But hey, it’s what the dataset gave me, so I rolled with it.
+One thing bugged me: cholesterol and gluc are ordinal categories, not real numbers. That limits the model a bit. But hey, it's what the dataset gave me, so I rolled with it.
 
 \begin{keyinsight}
 Data leakage. I made dead sure not to use any column like `prediction` or `probability` as input. Those only exist after the model runs – if you feed them back in you get a fake perfect score. So they were never seen during training.
 \end{keyinsight}
 
 \subsection{Data Quality and Reproducibility}
-Reproducibility matters a ton to me. Every cleaning rule I used is simple and medically explainable. I removed impossible blood pressure combos, capped extreme values, converted age, and built engineered features only from original columns. I also set a fixed random seed (42) for the train‑test split and for any randomness in model training. That way you can run the code tomorrow and get the exact same split, same folds, same numbers. I also kept the test set completely untouched until final evaluation – that’s the only way to get an honest score.
+Reproducibility matters a ton to me. Every cleaning rule I used is simple and medically explainable. I removed impossible blood pressure combos, capped extreme values, converted age, and built engineered features only from original columns. I also set a fixed random seed (42) for the train-test split and for any randomness in model training. That way you can run the code tomorrow and get the exact same split, same folds, same numbers. I also kept the test set completely untouched until final evaluation – that's the only way to get an honest score.
 
-And I went one step further: I saved the entire preprocessing pipeline as a single object using scikit‑learn’s `Pipeline`. That way, when I served the model later through FastAPI, the exact same scaling and encoding was applied to new inputs. Without that, a production model can give completely wrong predictions because the preprocessing was done slightly differently. I learned that lesson the hard way on a past project.
+And I went one step further: I saved the entire preprocessing pipeline as a single object using scikit-learn's `Pipeline`. That way, when I served the model later through FastAPI, the exact same scaling and encoding was applied to new inputs. Without that, a production model can give completely wrong predictions because the preprocessing was done slightly differently. I learned that lesson the hard way on a past project.
 
-\section{Data Preprocessing – Step by Step}
-Preprocessing was a whole to‑do list. I checked for missing stuff, booted out impossible records, fixed units, scaled numbers, and built new medical features. All that directly affects how well the model learns.
+\section{Cleaning the Data Step by Step}
+Preprocessing was a whole to-do list. I checked for missing stuff, booted out impossible records, fixed units, scaled numbers, and built new medical features. All that directly affects how well the model learns.
 
 \subsection{Handling Missing Values}
-Good news: the dataset had zero missing cells. I double‑checked with `df.isnull().sum()` – all zeros. Still, I wrote a tiny function that fills missing numeric values with the median and missing categorical ones with the mode. Just in case someone feeds a dirtier version later. I also added a quick check that raises an error if more than 5\% of any column is missing, so I wouldn’t accidentally train on a badly broken copy.
+Good news: the dataset had zero missing cells. I double-checked with `df.isnull().sum()` – all zeros. Still, I wrote a tiny function that fills missing numeric values with the median and missing categorical ones with the mode. Just in case someone feeds a dirtier version later. I also added a quick check that raises an error if more than 5\% of any column is missing, so I wouldn't accidentally train on a badly broken copy.
 
 \subsection{Data Cleaning}
 Blood pressure was the messiest. I found rows where \texttt{ap\_hi} was less than \texttt{ap\_lo} -- that's physically impossible. I also tossed rows where systolic was over 250 or under 80, and diastolic under 40 or over 150. Those are either typos or extreme outliers. In total I removed about 1,400 rows, only 2\% of the data. No big loss.
@@ -677,13 +678,14 @@ Height and weight had some weird ones -- like height 55 cm or weight 200 kg. Cou
 Age needed a quick fix. The raw column was in days (like 12000 days). I divided by 365.25 to get years. A few people ended up over 100, but it's a Russian dataset and centenarians exist. I kept them. The histogram later showed most folks were middle-aged, which makes sense for a heart disease study.
 
 One extra thing I did: I checked for duplicate rows. There were none after dropping `id`. Good -- duplicated records can inflate metrics if the same patient ends up in both train and test. I also checked that the remaining rows didn't have any impossible combinations like a non-smoker with a smoking-related disease code, but the dataset didn't have that level of detail anyway.
+
 \subsection{Feature Encoding}
-All features were already numeric, so no one‑hot encoding needed. Gender is 1/2, cholesterol and gluc are 1/2/3, smoke/alco/active are 0/1. For tree‑based models that’s totally fine. For linear models and SVM, I scaled the continuous features later. So I just kept the categories as raw numbers and let the models figure it out. I thought about treating cholesterol and gluc as ordinal categories and using `OrdinalEncoder`, but since they’re already 1‑2‑3, the integer coding is the same. So I didn’t change anything.
+All features were already numeric, so no one-hot encoding needed. Gender is 1/2, cholesterol and gluc are 1/2/3, smoke/alco/active are 0/1. For tree-based models that's totally fine. For linear models and SVM, I scaled the continuous features later. So I just kept the categories as raw numbers and let the models figure it out. I thought about treating cholesterol and gluc as ordinal categories and using `OrdinalEncoder`, but since they're already 1-2-3, the integer coding is the same. So I didn't change anything.
 
 \subsection{Feature Scaling}
 I used \texttt{StandardScaler} on age, height, weight, \texttt{ap\_hi}, \texttt{ap\_lo}. That squishes them to mean 0, standard deviation 1. Important for distance-based models like SVM and neural nets -- otherwise big numbers like age would dominate. Trees don't care about scaling, but I scaled anyway so I could use the same preprocessed array for all models. The categorical-like columns (cholesterol, gluc, smoke, alco, active) were left alone because they're already on a tiny scale and scaling would mess up their meaning.
 
-\subsection{Feature Engineering}
+\subsection{Features I Engineered from Clinical Measurements}
 This part was actually fun. I got to think like a doctor. I created:
 
 \begin{itemize}
@@ -695,13 +697,13 @@ This part was actually fun. I got to think like a doctor. I created:
   \item BMI = $\text{weight} / (\text{height}/100)^2$.
 \end{itemize}
 
-After all that, the feature set jumped from 11 to 16. Not huge, but I think it helped the models catch interactions. For example, the hypertension flag combines systolic and diastolic – the model doesn’t have to learn that combination from scratch. It’s like handing the model a cheat sheet. I tested models with and without these engineered features, and the version with them consistently gave 1‑2\% higher recall. So I kept them.
+After all that, the feature set jumped from 11 to 16. Not huge, but I think it helped the models catch interactions. For example, the hypertension flag combines systolic and diastolic – the model doesn't have to learn that combination from scratch. It's like handing the model a cheat sheet. I tested models with and without these engineered features, and the version with them consistently gave 1-2\% higher recall. So I kept them.
 
-\section{Exploratory Data Analysis (EDA)}
+\section{What the Data Looked Like Before Training}
 Before any training, I poked around the data. I wanted to see if the classes were balanced, if the risk factors made sense, and if anything looked broken.
 
 \subsection{Target balance}
-Figure~\ref{fig:target_pie} is a pie chart. 49.8\% CVD, 50.2\% no CVD. As balanced as it gets. So I didn’t need to mess with oversampling or class weights. That’s a relief – if it were 90/10, accuracy would be a liar.
+Figure~\ref{fig:target_pie} is a pie chart. 49.8\% CVD, 50.2\% no CVD. As balanced as it gets. So I didn't need to mess with oversampling or class weights. That's a relief – if it were 90/10, accuracy would be a liar.
 
 \begin{figure}[H]
 \centering
@@ -713,7 +715,7 @@ Figure~\ref{fig:target_pie} is a pie chart. 49.8\% CVD, 50.2\% no CVD. As balanc
 \end{figure}
 
 \subsection{Age distribution}
-Figure~\ref{fig:age_hist} shows the age histogram. People range from 29 to 65, with a big hump around 45–60. That’s exactly when heart disease starts showing up. I kept age continuous – no binning.
+Figure~\ref{fig:age_hist} shows the age histogram. People range from 29 to 65, with a big hump around 45–60. That's exactly when heart disease starts showing up. I kept age continuous – no binning.
 
 \begin{figure}[H]
 \centering
@@ -771,7 +773,7 @@ Figure~\ref{fig:bp_scatter} shows systolic vs diastolic colored by disease statu
 \end{figure}
 
 \subsection{Cholesterol and glucose}
-Figure~\ref{fig:chol_bar} compares cholesterol categories. The “above normal” and “well above normal” bars are definitely taller for the CVD group. That’s exactly what you’d expect.
+Figure~\ref{fig:chol_bar} compares cholesterol categories. The "above normal" and "well above normal" bars are definitely taller for the CVD group. That's exactly what you'd expect.
 
 \begin{figure}[H]
 \centering
@@ -802,7 +804,7 @@ Table~\ref{tab:corr} is a correlation matrix of the main numeric features. Age a
 
 \begin{table}[H]
 \centering
-\caption{Correlation matrix (selected features)}
+\caption{Correlation matrix of selected clinical features}
 \label{tab:corr}
 \small
 \rowcolors{1}{white}{gray!10}
@@ -821,38 +823,38 @@ cardio       & 0.24 & 0.23 & 0.16 & 0.14 & 0.09 & 1.00 \\
 \end{tabular}
 \end{table}
 
-The correlations aren’t super strong, which is good – it means the problem isn’t trivial. And there’s no crazy redundancy except systolic and diastolic being linked, which we expect.
+The correlations aren't super strong, which is good – it means the problem isn't trivial. And there's no crazy redundancy except systolic and diastolic being linked, which we expect.
 
-I also looked at grouped summaries – like average blood pressure for smokers vs non‑smokers, or cholesterol levels split by gender. Smokers had slightly higher systolic BP on average, but the difference wasn’t dramatic. That’s probably because smoking takes decades to really harden arteries, and the dataset only captures a snapshot in time. I didn’t make a separate plot for those because the differences were small, but I kept it in mind when interpreting feature importance later.
+I also looked at grouped summaries – like average blood pressure for smokers vs non-smokers, or cholesterol levels split by gender. Smokers had slightly higher systolic BP on average, but the difference wasn't dramatic. That's probably because smoking takes decades to really harden arteries, and the dataset only captures a snapshot in time. I didn't make a separate plot for those because the differences were small, but I kept it in mind when interpreting feature importance later.
 
-\section{Dataset Splitting}
+\section{How I Split the Data for Fair Evaluation}
 I split the data 80/20 with \texttt{train\_test\_split} and \texttt{stratify=cardio}. That keeps the same class balance in both pieces -- no accidental skew. Training set: 54,860 rows. Test set: 13,716 rows. Random seed 42.
 
-I didn’t carve out a separate validation set. Instead, I used 5‑fold cross‑validation on the training set for tuning. That’s cleaner – you use all training data for tuning without holding out extra. The test set sat in a box until the very end. That’s the final exam.
+I didn't carve out a separate validation set. Instead, I used 5-fold cross-validation on the training set for tuning. That's cleaner – you use all training data for tuning without holding out extra. The test set sat in a box until the very end. That's the final exam.
 
-One thing I double‑checked: after splitting, I verified that the mean age and blood pressure in train and test were similar. They were – difference less than 1\%. So the split really is representative.
+One thing I double-checked: after splitting, I verified that the mean age and blood pressure in train and test were similar. They were – difference less than 1\%. So the split really is representative.
 
-\section{Machine Learning Models Used}
-I tried seven models. I wanted a real comparison, not just “XGBoost wins” after testing two algorithms. Each one comes from a different family.
+\section{Why I Tested Seven Different Models}
+I tried seven models. I wanted a real comparison, not just "XGBoost wins" after testing two algorithms. Each one comes from a different family.
 
 \begin{itemize}
-  \item \textbf{Logistic Regression} – simple baseline. If a fancier model can’t beat it, something’s fishy.
+  \item \textbf{Logistic Regression} – simple baseline. If a fancier model can't beat it, something's fishy.
   \item \textbf{Random Forest} – a bunch of trees, averages them. Robust, hard to overfit.
   \item \textbf{SVM} with linear kernel and probability outputs.
-  \item \textbf{XGBoost} – gradient boosting champ. Sequential trees, built‑in regularization.
-  \item \textbf{LightGBM} – faster boosting, leaf‑wise growth. I wanted to see if it edges out XGBoost.
-  \item \textbf{Stacking Ensemble} – combines XGBoost, RF, LightGBM with a logistic meta‑learner.
+  \item \textbf{XGBoost} – gradient boosting champ. Sequential trees, built-in regularization.
+  \item \textbf{LightGBM} – faster boosting, leaf-wise growth. I wanted to see if it edges out XGBoost.
+  \item \textbf{Stacking Ensemble} – combines XGBoost, RF, LightGBM with a logistic meta-learner.
   \item \textbf{Neural Network} – two hidden layers (64, 32), ReLU, Adam. Kept it simple.
 \end{itemize}
 
-All were trained on the same preprocessed data. No deep learning tricks – just scikit‑learn pipelines and a TensorFlow Sequential model.
+All were trained on the same preprocessed data. No deep learning tricks – just scikit-learn pipelines and a TensorFlow Sequential model.
 
-I also considered but skipped a few models. K‑nearest neighbors? Too slow on 68k rows and didn’t add much in my pilot tests. AdaBoost? I’ve seen it overfit on noisy medical data. CatBoost? It’s great, but similar enough to LightGBM that I didn’t want to add another boosting library just for a 0.001 AUC gain. So seven models felt like the right balance of breadth without wasting time.
+I also considered but skipped a few models. K-nearest neighbors? Too slow on 68k rows and didn't add much in my pilot tests. AdaBoost? I've seen it overfit on noisy medical data. CatBoost? It's great, but similar enough to LightGBM that I didn't want to add another boosting library just for a 0.001 AUC gain. So seven models felt like the right balance of breadth without wasting time.
 
-\section{Hyperparameter Tuning}
-I used `GridSearchCV` with 5‑fold CV on the training set. I kept the grids small – my laptop isn’t a supercomputer. I optimized for AUC because it captures ranking quality better than accuracy.
+\section{How I Tuned Each Model's Parameters}
+I used `GridSearchCV` with 5-fold CV on the training set. I kept the grids small – my laptop isn't a supercomputer. I optimized for AUC because it captures ranking quality better than accuracy.
 
-Here’s what I landed on after tuning:
+Here's what I landed on after tuning:
 
 \begin{itemize}
   \item Logistic Regression: C=1.0, l2 penalty.
@@ -860,7 +862,7 @@ Here’s what I landed on after tuning:
   \item SVM: linear kernel, C=1.0, probability=True.
   \item XGBoost: learning rate 0.05, 500 rounds, max depth 6, subsample 0.8, reg\_lambda=1.
   \item LightGBM: same learning rate and rounds, num\_leaves=31, subsample 0.8.
-  \item Stacking: base models = best XGB, RF, LGBM; meta‑learner = Logistic Regression (C=0.5).
+  \item Stacking: base models = best XGB, RF, LGBM; meta-learner = Logistic Regression (C=0.5).
   \item Neural Network: hidden (64,32), ReLU, dropout 0.2, Adam, early stopping, batch size 32, max 50 epochs.
 \end{itemize}
 
@@ -868,32 +870,32 @@ I never touched the test set during tuning. All parameters were saved to a confi
 
 One lesson: I initially tried a much deeper neural net (128,64,32) and it overfit like crazy – training AUC hit 0.95 while validation stuck at 0.79. So I went back to a shallow net. Sometimes simpler really is better, especially on a dataset this size.
 
-\section{Model Evaluation Metrics}
-Accuracy alone is a liar in medicine. I used a bunch: accuracy, precision, recall, F1, ROC‑AUC, and confusion matrices. Precision tells you how many predicted “sick” are actually sick. Recall tells you how many real sick people you caught – that’s the critical one for screening. You don’t want to miss a heart patient. F1 balances precision and recall. AUC measures overall separation power across all thresholds.
+\section{The Metrics I Used to Compare Them}
+Accuracy alone is a liar in medicine. I used a bunch: accuracy, precision, recall, F1, ROC-AUC, and confusion matrices. Precision tells you how many predicted "sick" are actually sick. Recall tells you how many real sick people you caught – that's the critical one for screening. You don't want to miss a heart patient. F1 balances precision and recall. AUC measures overall separation power across all thresholds.
 
-The confusion matrix gives raw counts. That’s the most honest picture – no percentages hiding behind formulas.
+The confusion matrix gives raw counts. That's the most honest picture – no percentages hiding behind formulas.
 
 For screening, I focused on recall for class 1. A false negative (missing a real case) is way worse than a false positive. So I paid extra attention to threshold selection, not just default 0.5.
 
-I also looked at precision‑recall curves for the minimal feature experiment, because when recall matters more than accuracy, the PR curve is often more informative than ROC. But since the dataset is balanced, the ROC‑AUC is still a fair metric, so I kept both in the results.
+I also looked at precision-recall curves for the minimal feature experiment, because when recall matters more than accuracy, the PR curve is often more informative than ROC. But since the dataset is balanced, the ROC-AUC is still a fair metric, so I kept both in the results.
 
-\section{Experimental Environment}
-I ran everything on my Dell Inspiron laptop – 11th‑gen Intel i5, 16 GB RAM, Windows 11, Python 3.10. Libraries: scikit‑learn 1.2, XGBoost 1.7.4, LightGBM 3.3.5, TensorFlow 2.11. EDA with pandas, numpy, matplotlib, seaborn.
+\section{My Computing Setup}
+I ran everything on my Dell Inspiron laptop – 11th-gen Intel i5, 16 GB RAM, Windows 11, Python 3.10. Libraries: scikit-learn 1.2, XGBoost 1.7.4, LightGBM 3.3.5, TensorFlow 2.11. EDA with pandas, numpy, matplotlib, seaborn.
 
-Training times were totally manageable. Logistic regression and SVM took under a second. Random forest ~30 seconds. XGBoost and LightGBM about 1 minute each. Neural net with early stopping ~2 minutes. Stacking ~3 minutes. The whole pipeline from raw CSV to final predictions ran in under 10 minutes. You don’t need a supercomputer for this.
+Training times were totally manageable. Logistic regression and SVM took under a second. Random forest ~30 seconds. XGBoost and LightGBM about 1 minute each. Neural net with early stopping ~2 minutes. Stacking ~3 minutes. The whole pipeline from raw CSV to final predictions ran in under 10 minutes. You don't need a supercomputer for this.
 
 I also exported the environment with `pip freeze` and included a requirements.txt in the GitHub repo. That way, someone cloning the project can install the exact same package versions I used. Small detail, but it saves hours of debugging.
 
 \subsection{Ethical and Privacy Considerations}
-The dataset is public and has no names, addresses, or patient IDs. Still, I treated it like real medical data. The model is a screening prototype – not a diagnosis. It should always be reviewed by a human. I also made sure no future columns (like SHAP values or predicted probabilities) leaked into the training data. That’s a common trap that makes a model look great in testing but fail in real life. I avoided it completely.
+The dataset is public and has no names, addresses, or patient IDs. Still, I treated it like real medical data. The model is a screening prototype – not a diagnosis. It should always be reviewed by a human. I also made sure no future columns (like SHAP values or predicted probabilities) leaked into the training data. That's a common trap that makes a model look great in testing but fail in real life. I avoided it completely.
 
-And one more thing: I didn’t train separate models for men and women, or for different age groups, even though the model might have different accuracy across subgroups. That’s a fairness concern I want to explore later, but for this thesis I kept it as one global model.
+And one more thing: I didn't train separate models for men and women, or for different age groups, even though the model might have different accuracy across subgroups. That's a fairness concern I want to explore later, but for this thesis I kept it as one global model.
 
 \section{Summary of Methodology}
-I cleaned the data, built medical features, split it with stratification, trained seven models, tuned them with cross‑validation, and evaluated with multiple metrics – especially recall. Everything is documented so another person can pick up the code and reproduce the whole thing. The whole pipeline, from CSV to API, can run on a normal laptop in under ten minutes. That’s on purpose – I wanted to show that medical ML doesn’t need a server farm.
+I cleaned the data, built medical features, split it with stratification, trained seven models, tuned them with cross-validation, and evaluated with multiple metrics – especially recall. Everything is documented so another person can pick up the code and reproduce the whole thing. The whole pipeline, from CSV to API, can run on a normal laptop in under ten minutes. That's on purpose – I wanted to show that medical ML doesn't need a server farm.
 
 \begin{takeaway}
-\textbf{Takeaway:} The methodology combined careful cleaning, medically informed features, a wide model comparison, and recall‑focused evaluation. It’s a solid, reproducible pipeline for CVD screening.
+\textbf{Takeaway:} The methodology combined careful cleaning, medically informed features, a wide model comparison, and recall-focused evaluation. It's a solid, reproducible pipeline for CVD screening.
 \end{takeaway}
 
 \chapter{RESULTS AND ANALYSIS}
@@ -901,16 +903,16 @@ I cleaned the data, built medical features, split it with stratification, traine
 \section{Introduction}
 Okay so here are the numbers. I trained seven models, tuned each one, then ran them on the exact same test set. None of them saw those 13,716 patients before. I compared accuracy, precision, recall, F1, AUC, confusion matrices, how they behaved at different thresholds, and which features they leaned on most.
 
-I’m gonna walk through the tables and plots, but I also want to connect the dots back to real medicine. Because a list of scores is boring. What matters is whether the model picks up the same risk factors doctors already know about – like high blood pressure and cholesterol – and whether it’s actually useful for catching people before they get sick.
+I'm gonna walk through the tables and plots, but I also want to connect the dots back to real medicine. Because a list of scores is boring. What matters is whether the model picks up the same risk factors doctors already know about – like high blood pressure and cholesterol – and whether it's actually useful for catching people before they get sick.
 
-\section{Model Performance Comparison}
+\section{Which Model Worked Best}
 Table~\ref{tab:model_performance} has the full comparison. All numbers come from the 20\% test set – 13,716 rows. I set a random seed so you can reproduce exactly this split.
 
 \begin{table}[H]
 \centering
 \rowcolors{1}{white}{gray!10}
 \renewcommand{\arraystretch}{1.1}
-\caption{Performance Comparison of Machine Learning Models}
+\caption{Test-set performance of seven classification models}
 \label{tab:model_performance}
 \small
 \begin{tabular}{l S[table-format=1.4] S[table-format=1.4] S[table-format=1.4] S[table-format=1.4] S[table-format=1.4]}
@@ -928,9 +930,9 @@ Neural Network         & 0.7311 & 0.7338 & 0.7311 & 0.7301 & 0.7985 \\
 \end{tabular}
 \end{table}
 
-XGBoost won in accuracy – 73.42\%. LightGBM was almost identical. The stacking ensemble had the highest AUC (0.8023), but that’s only 0.0013 above XGBoost – basically a tie. So I kept XGBoost as my main model. It’s simpler and faster to serve through an API. The neural net didn’t beat the boosted trees, which honestly makes sense for a medium‑sized tabular dataset.
+XGBoost won in accuracy – 73.42\%. LightGBM was almost identical. The stacking ensemble had the highest AUC (0.8023), but that's only 0.0013 above XGBoost – basically a tie. So I kept XGBoost as my main model. It's simpler and faster to serve through an API. The neural net didn't beat the boosted trees, which honestly makes sense for a medium-sized tabular dataset.
 
-\subsection{ROC‑AUC Bar Chart}
+\subsection{ROC-AUC Bar Chart}
 Figure~\ref{fig:auc_bar} puts all the AUC values side by side. You can see that the boosting methods (XGBoost, LightGBM, Stacking) are all clustered around 0.80, while Random Forest lags a bit.
 
 \begin{figure}[H]
@@ -966,14 +968,14 @@ Figure~\ref{fig:auc_bar} puts all the AUC values side by side. You can see that 
 \label{fig:auc_bar}
 \end{figure}
 
-\subsection{Minimal Feature Set Experiment}
-I also trained with just eight simple features – I dropped age, gender, and BMI. So the models only had weight, blood pressure, cholesterol, glucose, smoking, alcohol, activity, and the engineered flags. Table~\ref{tab:model_performance_minimal} shows what happened. XGBoost still managed an AUC of 0.78 and class‑1 recall around 66\%. That’s not as good as the full set, but it’s still usable. If a clinic only collects basic vitals without age, the model isn’t dead in the water.
+\subsection{What Happens When You Remove Age and Gender}
+I also trained with just eight simple features – I dropped age, gender, and BMI. So the models only had weight, blood pressure, cholesterol, glucose, smoking, alcohol, activity, and the engineered flags. Table~\ref{tab:model_performance_minimal} shows what happened. XGBoost still managed an AUC of 0.78 and class-1 recall around 66\%. That's not as good as the full set, but it's still usable. If a clinic only collects basic vitals without age, the model isn't dead in the water.
 
 \begin{table}[H]
 \centering
 \rowcolors{1}{white}{gray!10}
 \renewcommand{\arraystretch}{1.1}
-\caption{Minimal feature set performance}
+\caption{Performance with age, gender, and BMI excluded}
 \label{tab:model_performance_minimal}
 \small
 \begin{tabular}{l S[table-format=1.4] S[table-format=1.4] S[table-format=1.4] S[table-format=1.4] S[table-format=1.4] S[table-format=1.4]}
@@ -989,8 +991,8 @@ LightGBM (tuned)    & 0.7250 & 0.7285 & 0.7250 & 0.7236 & 0.7799 & 0.6564 \\
 \end{tabular}
 \end{table}
 
-\section{Confusion Matrix for XGBoost}
-Figure~\ref{fig:confusion_xgboost} shows exactly what XGBoost did at the default 0.5 threshold. The model caught 70.9\% of the sick people (true positives) and flagged 20.3\% of healthy people as sick (false positives). That’s a decent balance, but the false‑negative rate – 29.1\% – means almost three out of ten real CVD cases slip through. That’s why I talk about lowering the threshold later.
+\section{How Many Cases the Model Actually Catches}
+Figure~\ref{fig:confusion_xgboost} shows exactly what XGBoost did at the default 0.5 threshold. The model caught 70.9\% of the sick people (true positives) and flagged 20.3\% of healthy people as sick (false positives). That's a decent balance, but the false-negative rate – 29.1\% – means almost three out of ten real CVD cases slip through. That's why I talk about lowering the threshold later.
 
 \begin{figure}[H]
 \centering
@@ -1011,7 +1013,7 @@ Figure~\ref{fig:confusion_xgboost} shows exactly what XGBoost did at the default
 \label{fig:confusion_xgboost}
 \end{figure}
 
-\section{ROC Curve}
+\section{The ROC Curve and What It Tells Us}
 Figure~\ref{fig:roc_xgboost} is the full ROC curve. AUC sits at 0.801. The curve rises sharply toward the upper left, which means the model separates the two classes pretty well even at conservative thresholds. If you choose a threshold that gives a high true positive rate, the false positive rate stays manageable until about 0.4.
 
 \begin{figure}[H]
@@ -1068,8 +1070,8 @@ Figure~\ref{fig:roc_xgboost} is the full ROC curve. AUC sits at 0.801. The curve
 \label{fig:roc_xgboost}
 \end{figure}
 
-\section{Threshold Trade‑Off}
-Now the interesting part. Figure~\ref{fig:threshold_tradeoff} shows what happens when you move the decision threshold. Precision and recall pull in opposite directions – classic trade‑off. At 0.3, recall jumps to about 0.89 but precision drops to 0.64. That means you’ll catch almost 9 out of 10 sick patients, but you’ll also flag a bunch of healthy people for extra tests. For a first‑stage screening tool, I think that’s worth it. An extra blood draw or ECG is a lot cheaper than missing a heart disease case. I’d pick 0.3 if this were deployed.
+\section{Choosing the Right Threshold for Screening}
+Now the interesting part. Figure~\ref{fig:threshold_tradeoff} shows what happens when you move the decision threshold. Precision and recall pull in opposite directions – classic trade-off. At 0.3, recall jumps to about 0.89 but precision drops to 0.64. That means you'll catch almost 9 out of 10 sick patients, but you'll also flag a bunch of healthy people for extra tests. For a first-stage screening tool, I think that's worth it. An extra blood draw or ECG is a lot cheaper than missing a heart disease case. I'd pick 0.3 if this were deployed.
 
 \begin{figure}[H]
 \centering
@@ -1128,7 +1130,7 @@ Now the interesting part. Figure~\ref{fig:threshold_tradeoff} shows what happens
 \label{fig:threshold_tradeoff}
 \end{figure}
 
-\section{Feature Importance}
+\section{Which Clinical Features Matter Most}
 Figure~\ref{fig:feature_importance_xgb} shows what XGBoost thinks matters most. Systolic blood pressure (\texttt{ap\_hi}) absolutely dominates -- no surprise. Cholesterol, diastolic pressure, and age are next. That lines up with every cardiology textbook I've read. Figure~\ref{fig:feature_importance_lgbm} shows LightGBM's view, which is almost the same but puts age second. Either way, blood pressure is king.
 
 \begin{figure}[H]
@@ -1181,10 +1183,10 @@ Figure~\ref{fig:feature_importance_xgb} shows what XGBoost thinks matters most. 
 \label{fig:feature_importance_lgbm}
 \end{figure}
 
-\section{Discussion of Results}
-So boosting won. XGBoost and LightGBM edged out the others by a few percent across every metric. Stacking gave a tiny AUC bump but not enough to justify the extra complexity. The neural network didn’t shine, and I think that’s because 68k rows just isn’t enough for a deep net to learn anything a tree can’t.
+\section{Interpreting the Results in Clinical Terms}
+So boosting won. XGBoost and LightGBM edged out the others by a few percent across every metric. Stacking gave a tiny AUC bump but not enough to justify the extra complexity. The neural network didn't shine, and I think that's because 68k rows just isn't enough for a deep net to learn anything a tree can't.
 
-The feature importance charts told me exactly what I hoped to see. Systolic blood pressure is the strongest predictor, cholesterol right behind it. That’s exactly what doctors check first. The model didn’t pick up some random noise – it learned the same signals a cardiologist would look for.
+The feature importance charts told me exactly what I hoped to see. Systolic blood pressure is the strongest predictor, cholesterol right behind it. That's exactly what doctors check first. The model didn't pick up some random noise – it learned the same signals a cardiologist would look for.
 
 \subsection{Clinical Interpretation}
 The coolest part wasn't just the accuracy. It was that the model's logic matches medical common sense. If the top feature had been \texttt{alco} or \texttt{gender}, I'd be suspicious. But \texttt{ap\_hi} and \texttt{cholesterol} being at the top makes the model way more trustworthy. That matters because doctors are more likely to trust a tool that agrees with what they already know. It's not some black box finding a weird pattern in the data that nobody can explain.
@@ -1198,44 +1200,45 @@ Of course, the model's ranking isn't perfect. Physical activity and glucose didn
 Another thing I noticed: gender ranked low in importance. That's interesting because some studies show men have higher CVD risk at younger ages. In this dataset, age and blood pressure might already capture most of the risk differences between genders, so gender doesn't add much extra. It's not that gender doesn't matter biologically -- it's that the model doesn't need it when it already has stronger signals.
 
 Overall, the clinical alignment gives me confidence that the model could be used as a screening prompt, not a diagnosis. It flags high-risk patients based on the same factors a doctor would check, but it can process thousands of records in seconds. That's the real value.
+
 \subsection{Error Analysis and Threshold Selection}
-At 0.5, the model misses about 29\% of real CVD cases – that’s too many for screening. By lowering the threshold to 0.3, recall jumps to 89\% with precision around 64\%. Sure, more healthy people will get flagged, but an extra check‑up is no big deal compared to a missed heart condition. I’d set the threshold at 0.3 if I were actually using this in a screening setting.
+At 0.5, the model misses about 29\% of real CVD cases – that's too many for screening. By lowering the threshold to 0.3, recall jumps to 89\% with precision around 64\%. Sure, more healthy people will get flagged, but an extra check-up is no big deal compared to a missed heart condition. I'd set the threshold at 0.3 if I were actually using this in a screening setting.
 
 \section{Summary}
-Seven models, one winner. XGBoost gave 73.4\% accuracy, 0.801 AUC, and recall 73.4\% at the default threshold. Drop the threshold to 0.3 and recall leaps to 89\%. Blood pressure and cholesterol are the heavy lifters, just like every doctor says. The model even works okay without age. The API and SHAP explanations are ready to go – I’ll talk about deployment in the next chapter.
+Seven models, one winner. XGBoost gave 73.4\% accuracy, 0.801 AUC, and recall 73.4\% at the default threshold. Drop the threshold to 0.3 and recall leaps to 89\%. Blood pressure and cholesterol are the heavy lifters, just like every doctor says. The model even works okay without age. The API and SHAP explanations are ready to go – I'll talk about deployment in the next chapter.
 
 \begin{takeaway}
 \textbf{Key points from Chapter 4:}
 \begin{itemize}
-  \item XGBoost achieved the best overall trade‑off (accuracy 73.4\%, AUC 0.801).
+  \item XGBoost achieved the best overall trade-off (accuracy 73.4\%, AUC 0.801).
   \item Systolic blood pressure, cholesterol, and age are the top predictors.
   \item Lowering the threshold to 0.3 raises recall to 89\% – good for screening.
-  \item The minimal‑feature experiment shows the model stays useful without age.
+  \item The minimal-feature experiment shows the model stays useful without age.
 \end{itemize}
 \end{takeaway}
 
 \chapter{CONCLUSION AND FUTURE WORK}
 
-\section{Introduction}
+\section{What I Found}
 This final chapter brings the study together. It summarizes the main findings, explains the contributions, discusses the limitations, and suggests directions for future work. The purpose is to show not only what the model achieved, but also what the results mean for practical CVD screening.
 
-\section{Summary of the Study}
 I grabbed the Kaggle CVD dataset. Cleaned it up, threw out the impossible blood pressure readings, added some engineered stuff like BMI and hypertension flags. Then I trained seven different ML models -- logistic regression, random forest, SVM, XGBoost, LightGBM, a stacking ensemble, and a simple neural net. Tuned every one of them with grid search and cross-validation. After all that XGBoost came out on top with 73.4\% accuracy and an AUC of 0.801. Stacking gave a tiny AUC boost to 0.8023 but I stuck with XGBoost -- it's simpler and faster. On top of the model I built a FastAPI service that spits out a probability and SHAP explanations so you can see why it made the call. The frontend is basic HTML, nothing fancy, but it works. Code's on GitHub, fully reproducible on any half-decent laptop.
 
 \section{Key Findings}
 So what did I actually learn? First off, machine learning can definitely spot CVD risk from everyday measurements like age, blood pressure, and cholesterol. That's not magic -- it's just patterns. The gradient boosting methods (XGBoost, LightGBM) beat the older models by a few percent, and the difference is consistent across all metrics. Systolic blood pressure is the big boss -- it always comes out as the most important feature, followed by cholesterol and age. That totally matches what doctors have been telling us for decades. Even if you take away age, the model still catches 66\% of sick people, which is decent when data is missing. If I lower the threshold from 0.5 to 0.3 recall jumps to 89\%. That means we catch almost 9 out of 10 sick patients even though we scare a few healthy ones. For a non-invasive screening tool that's a trade-off worth making. And the SHAP explanations -- they show exactly what pushed the risk up or down, which makes the whole thing transparent and a lot easier to trust. Every prediction has a story behind it, not just a number.
 
-\section{Contributions of the Study}
+\section{Why This Study Contributes Something New}
 I think the main things I brought to the table are a really broad comparison. Most papers test two or three algorithms; I did seven on the same large dataset. That's a fair fight. I also checked what happens if you only have a few basic features -- and it still works. That's important because real medical forms are often missing columns. Then there's the web API -- it's not just a notebook that you run once; you can actually call it from a frontend and get a real prediction with SHAP. And everything is public. The code, the trained model, the whole pipeline. If someone wants to build on it, they just clone the repo and go. No cloud subscription needed -- it runs on a regular laptop. That matters for small hospitals or labs that don't have big budgets. I also think the student-friendly style of this thesis shows that you don't need a BSto try machine learning in medicine; a bit of Python and curiosity go a long way.
 
+\section{The Study's Weaknesses}
 Several limitations should be considered. The study used one public dataset, so the results may not fully generalize to other populations, countries, or hospital systems. External validation was not performed, and the test split is not the same as testing on completely separate clinical records. The feature set is also limited to structured questionnaire and measurement variables; it does not include ECG signals, imaging, genetic markers, or detailed laboratory results.
 
 The model should be treated as a screening aid, not as a replacement for clinical diagnosis. A 73\% accuracy level is promising for a student-scale prototype, but it is not sufficient for autonomous medical decision-making. The web interface is also basic and would need user authentication, logging, monitoring, and clinical review before any real deployment. Finally, the interpretability work uses feature importance and SHAP explanations, but a deeper fairness and error analysis would be valuable before using the system in practice.
 
-\section{Future Work}
+\section{What I'd Do Next}
 If I had more time I'd test the model on Framingham and MIMIC-III just to see if it holds up. Maybe try some deep learning on tabular data -- TabNet or NODE -- they might squeeze out a few extra points. Adding ECG or imaging features would be a game-changer. I'd also deploy the API on a cloud server and run a pilot with a real clinic, get feedback from doctors, and see how it performs in the wild. Integrate LIME and SHAP more deeply into the UI so you can hover over a risk score and instantly see what's driving it. A mobile app would be nice -- most patients have smartphones, why not let them check their own risk? And finally, I'd want to check fairness -- split the performance by gender and age groups to make sure the model doesn't disadvantage anyone. Maybe even retrain with some fairness constraints if needed. The code is ready, it just needs someone to push it further.
 
-\section{Final Conclusion}
+\section{Final Thoughts}
 This thesis showed that cardiovascular disease risk can be predicted from simple clinical and lifestyle measurements using machine learning. The best model is not perfect, and it should never replace a doctor, but it can support early screening by highlighting patients who may need further attention.
 
 The most important lesson is that model building is only one part of a useful system. Data cleaning, feature engineering, careful evaluation, threshold selection, and interpretability all matter. By combining these steps with a working API, the project becomes more than an experiment: it becomes a reproducible prototype for practical decision support.
@@ -1243,6 +1246,7 @@ The most important lesson is that model building is only one part of a useful sy
 \begin{takeaway}
 \textbf{Takeaway:} This thesis showed that ML-based CVD prediction is feasible and can be deployed openly. Seven models were compared, XGBoost performed best, and blood pressure emerged as the top predictor. The code and API are public, ready for others to build on.
 \end{takeaway}
+
 \clearpage
 \phantomsection
 % Use the standard bibliography mechanism, but rename it to "References"

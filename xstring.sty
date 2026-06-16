@@ -1,0 +1,36 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{xstring}[2026/06/13 v0.0 local compatibility shim]
+\makeatletter
+\newcommand{\StrLen}[2]{%
+  \begingroup
+  \edef\XString@arg{#2}%
+  \count@=\z@
+  \expandafter\XString@Len\expandafter{\XString@arg}\@nil
+  \edef#1{\the\count@}%
+  \endgroup
+}
+\def\XString@Len#1{%
+  \ifx#1\@nil
+  \else
+    \advance\count@\@ne
+    \expandafter\XString@Len
+  \fi
+}
+\newcommand{\IfInteger}[3]{%
+  \begingroup
+  \edef\XString@arg{#1}%
+  \def\XString@Loop##1{%
+    \ifx##1\@nil
+      \endgroup #2%
+    \else
+      \ifcat 0\noexpand##1%
+        \expandafter\expandafter\expandafter\XString@Loop
+      \else
+        \endgroup #3%
+      \fi
+    \fi
+  }%
+  \expandafter\XString@Loop\XString@arg\@nil
+}
+\makeatother
+\endinput

@@ -1,0 +1,72 @@
+﻿2026-06-16 21:04:40,390+0500 INFO  lualatex - this process (8852) started by powershell in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\lualatex.exe" -interaction=nonstopmode thesis_single.tex
+2026-06-16 21:04:40,390+0500 INFO  lualatex - running on Windows 10.0.19045
+2026-06-16 21:04:40,645+0500 INFO  lualatex - going to create file: lualatex.fmt
+2026-06-16 21:04:40,645+0500 INFO  lualatex.core - start process: miktex --enable-installer formats build lualatex --engine luahbtex
+2026-06-16 21:05:13,918+0500 ERROR lualatex - C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\miktex.exe did not succeed; exitCode: 1
+2026-06-16 21:05:13,918+0500 ERROR lualatex - output:
+2026-06-16 21:05:13,918+0500 ERROR lualatex - Building format 'lualatex' with engine 'luahbtex'...
+
+Sorry, but: The executed process did not succeed.
+
+2026-06-16 21:05:13,919+0500 FATAL lualatex.core - The memory dump file could not be found.
+2026-06-16 21:05:13,919+0500 FATAL lualatex.core - Data: fileName="lualatex.fmt"
+2026-06-16 21:05:13,919+0500 FATAL lualatex.core - Source: Programs\TeXAndFriends\luatex\miktex\miktex.cpp:74
+2026-06-16 21:05:13,919+0500 FATAL lualatex - The memory dump file could not be found.
+2026-06-16 21:05:13,919+0500 FATAL lualatex - Info: fileName="lualatex.fmt"
+2026-06-16 21:05:13,919+0500 FATAL lualatex - Source: Programs\TeXAndFriends\luatex\miktex\miktex.cpp
+2026-06-16 21:05:13,919+0500 FATAL lualatex - Line: 74
+2026-06-16 21:05:13,941+0500 INFO  lualatex - this process (8852) finishes with exit code 1
+2026-06-16 21:15:21,825+0500 INFO  lualatex - this process (4084) started by powershell in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\lualatex.exe" -interaction=nonstopmode thesis_single.tex
+2026-06-16 21:15:21,826+0500 INFO  lualatex - running on Windows 10.0.19045
+2026-06-16 21:15:21,975+0500 INFO  lualatex - going to create file: lualatex.fmt
+2026-06-16 21:15:21,978+0500 INFO  lualatex.core - start process: miktex --enable-installer formats build lualatex --engine luahbtex
+2026-06-16 21:15:28,788+0500 ERROR lualatex - C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\miktex.exe did not succeed; exitCode: 1
+2026-06-16 21:15:28,788+0500 ERROR lualatex - output:
+2026-06-16 21:15:28,788+0500 ERROR lualatex - Building format 'lualatex' with engine 'luahbtex'...
+
+Sorry, but: The executed process did not succeed.
+
+2026-06-16 21:15:28,789+0500 FATAL lualatex.core - The memory dump file could not be found.
+2026-06-16 21:15:28,789+0500 FATAL lualatex.core - Data: fileName="lualatex.fmt"
+2026-06-16 21:15:28,789+0500 FATAL lualatex.core - Source: Programs\TeXAndFriends\luatex\miktex\miktex.cpp:74
+2026-06-16 21:15:28,790+0500 FATAL lualatex - The memory dump file could not be found.
+2026-06-16 21:15:28,791+0500 FATAL lualatex - Info: fileName="lualatex.fmt"
+2026-06-16 21:15:28,791+0500 FATAL lualatex - Source: Programs\TeXAndFriends\luatex\miktex\miktex.cpp
+2026-06-16 21:15:28,791+0500 FATAL lualatex - Line: 74
+2026-06-16 21:15:28,814+0500 INFO  lualatex - this process (4084) finishes with exit code 1
+2026-06-16 21:20:06,833+0500 INFO  lualatex - this process (3796) started by perl in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: lualatex -recorder thesis_single.tex
+2026-06-16 21:20:06,834+0500 INFO  lualatex - running on Windows 10.0.19045
+2026-06-16 21:20:06,909+0500 INFO  lualatex - going to create file: lualatex.fmt
+2026-06-16 21:20:06,909+0500 INFO  lualatex.core - start process: miktex --enable-installer formats build lualatex --engine luahbtex
+2026-06-16 21:20:10,605+0500 ERROR lualatex - C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\miktex.exe did not succeed; exitCode: 1
+2026-06-16 21:20:10,605+0500 ERROR lualatex - output:
+2026-06-16 21:20:10,605+0500 ERROR lualatex - Building format 'lualatex' with engine 'luahbtex'...
+
+Sorry, but: The executed process did not succeed.
+
+2026-06-16 21:20:10,605+0500 FATAL lualatex.core - The memory dump file could not be found.
+2026-06-16 21:20:10,606+0500 FATAL lualatex.core - Data: fileName="lualatex.fmt"
+2026-06-16 21:20:10,606+0500 FATAL lualatex.core - Source: Programs\TeXAndFriends\luatex\miktex\miktex.cpp:74
+2026-06-16 21:20:10,606+0500 FATAL lualatex - The memory dump file could not be found.
+2026-06-16 21:20:10,606+0500 FATAL lualatex - Info: fileName="lualatex.fmt"
+2026-06-16 21:20:10,606+0500 FATAL lualatex - Source: Programs\TeXAndFriends\luatex\miktex\miktex.cpp
+2026-06-16 21:20:10,606+0500 FATAL lualatex - Line: 74
+2026-06-16 21:20:10,629+0500 INFO  lualatex - this process (3796) finishes with exit code 1
+2026-06-16 21:26:15,397+0500 INFO  lualatex - this process (2456) started by powershell in directory C:\Users\Sajjad Alam PC\Desktop\R1\project1 with command line: "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\lualatex.exe" -interaction=nonstopmode thesis_single.tex
+2026-06-16 21:26:15,397+0500 INFO  lualatex - running on Windows 10.0.19045
+2026-06-16 21:26:15,502+0500 INFO  lualatex - going to create file: lualatex.fmt
+2026-06-16 21:26:15,503+0500 INFO  lualatex.core - start process: miktex --enable-installer formats build lualatex --engine luahbtex
+2026-06-16 21:26:37,584+0500 ERROR lualatex - C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\miktex\bin\x64\miktex.exe did not succeed; exitCode: 1
+2026-06-16 21:26:37,584+0500 ERROR lualatex - output:
+2026-06-16 21:26:37,584+0500 ERROR lualatex - Building format 'lualatex' with engine 'luahbtex'...
+
+Sorry, but: The executed process did not succeed.
+
+2026-06-16 21:26:37,585+0500 FATAL lualatex.core - The memory dump file could not be found.
+2026-06-16 21:26:37,585+0500 FATAL lualatex.core - Data: fileName="lualatex.fmt"
+2026-06-16 21:26:37,585+0500 FATAL lualatex.core - Source: Programs\TeXAndFriends\luatex\miktex\miktex.cpp:74
+2026-06-16 21:26:37,585+0500 FATAL lualatex - The memory dump file could not be found.
+2026-06-16 21:26:37,585+0500 FATAL lualatex - Info: fileName="lualatex.fmt"
+2026-06-16 21:26:37,586+0500 FATAL lualatex - Source: Programs\TeXAndFriends\luatex\miktex\miktex.cpp
+2026-06-16 21:26:37,586+0500 FATAL lualatex - Line: 74
+2026-06-16 21:26:37,607+0500 INFO  lualatex - this process (2456) finishes with exit code 1

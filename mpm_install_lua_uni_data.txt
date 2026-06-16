@@ -1,0 +1,12 @@
+﻿mpm.exe : Warning: --install: this option has been deprecated; it will be 
+removed from a future version of MiKTeX
+At line:1 char:51
++ ... \project1"; & "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Warning: --inst...rsion of MiKTeX 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Operating on the private (per-user) MiKTeX setup
+
+Sorry, but: The requested package is unknown.

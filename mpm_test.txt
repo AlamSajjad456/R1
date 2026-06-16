@@ -1,0 +1,15 @@
+﻿mpm.exe : Warning: --install: this option has been deprecated; it will be 
+removed from a future version of MiKTeX
+At line:1 char:51
++ ... \project1"; & "C:\Users\Sajjad Alam PC\AppData\Local\Programs\MiKTeX\ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Warning: --inst...rsion of MiKTeX 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Sorry, but "MiKTeX Package Manager" did not succeed for the following reason:
+
+  Option --admin only makes sense for a shared MiKTeX setup.
+log4cxx: No appender could be found for logger (mpmcli).
+log4cxx: Please initialize the log4cxx system properly.

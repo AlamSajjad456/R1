@@ -1,0 +1,7 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{xpatch}[2026/06/13 v0.0 local compatibility shim]
+\RequirePackage{etoolbox}
+\providecommand\xpatchcmd[4]{\patchcmd{#1}{#2}{#3}{#4}}
+\providecommand\xpretocmd[4]{\pretocmd{#1}{#2}{#3}{#4}}
+\providecommand\xapptocmd[4]{\apptocmd{#1}{#2}{#3}{#4}}
+\endinput
