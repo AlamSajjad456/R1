@@ -1,4 +1,15 @@
-# ml_system
+---
+title: CVD ML Predictor
+emoji: ❤️
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
+# CVD ML Predictor
+
+Cardiovascular disease prediction API with multiple models (XGBoost, LightGBM, SVM, MLP, Logistic Regression).
 
 This folder contains the ML code + the FastAPI app.
 
